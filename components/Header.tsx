@@ -48,7 +48,7 @@ const Header: React.FC<HeaderProps> = () => {
                <div className="">
                   <a
                      href="tel:+998 (99) 999-9999"
-                     className="text-[20px] max-lg:text-[18px] font-semibold"
+                     className="text-[20px] max-lg:text-[18px] max-sm:text-base font-semibold"
                   >
                      +998 (99) 999-9999
                   </a>

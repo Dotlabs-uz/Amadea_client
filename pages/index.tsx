@@ -7,6 +7,8 @@ import AboutUs from "@/containers/AboutUs";
 
 import { Inter } from "next/font/google";
 import Reviews from "@/containers/Reviews";
+import Employees from "@/containers/Employees";
+import Footer from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
@@ -18,7 +20,9 @@ export default function Home() {
             <Categories />
             <AboutUs />
             <Reviews />
+            <Employees />
          </main>
+         <Footer />
       </>
    );
 }

@@ -24,8 +24,11 @@ const Reviews: React.FC<ReviewsProps> = () => {
                         spaceBetween: 10,
                      },
                      540: {
-                        slidesPerView: 2.4,
+                        slidesPerView: 1.4,
                         spaceBetween: 20,
+                     },
+                     720: {
+                        slidesPerView: 1.6,
                      },
                      960: {
                         slidesPerView: 2.4,
@@ -38,7 +41,7 @@ const Reviews: React.FC<ReviewsProps> = () => {
                   {[0, 1, 2, 3, 4].map((item: number) => {
                      return (
                         <SwiperSlide key={item}>
-                           <div className="flex flex-col items-center justify-center py-8 px-16 max-lg:px-10 max-md:px-5 bg-white">
+                           <div className="flex flex-col items-center justify-center py-8 max-lg:py-6 max-md:py-4 px-16 max-lg:px-10 max-md:px-5 bg-white">
                               <div className="">
                                  <div className="w-40 rounded-full overflow-hidden">
                                     <Image
