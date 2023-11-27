@@ -1,8 +1,8 @@
-interface TitleCocProps {
+interface TitleConProps {
    children: string;
 }
 
-const TitleCoc: React.FC<TitleCocProps> = ({ children }) => {
+const TitleCon: React.FC<TitleConProps> = ({ children }) => {
    return (
       <div className="mb-10 max-md:mb-6 py-5 border-b border-black">
          <h2 className="text-[56px] max-md:text-[40px] max-sm:text-[36px] font-semibold max-sm:text-center text-[#50806B]">
@@ -12,4 +12,4 @@ const TitleCoc: React.FC<TitleCocProps> = ({ children }) => {
    );
 };
 
-export default TitleCoc;
+export default TitleCon;

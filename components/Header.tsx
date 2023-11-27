@@ -23,7 +23,7 @@ const Header: React.FC<HeaderProps> = () => {
                <nav className="max-md:hidden">
                   <ul className="flex items-center justify-between gap-20 max-xl:gap-10 ">
                      <li>
-                        <Link href={"#"}>Home</Link>
+                        <Link href={"/catalog"}>Catalog</Link>
                      </li>
                      <li>
                         <Link href={"#"}>Products</Link>
