@@ -13,7 +13,7 @@ const TitlePage: React.FC<TitlePageProps> = ({ children }) => {
             </div>
          </div>
          <div className="custom-container ">
-            <p className="text-gray-400 mb-28 max-xl:mb-24 max-md:mb-14 cursor-pointer">
+            <p className="text-gray-400 mb-28 max-xl:mb-24 max-md:mb-14 max-sm:mb-0 cursor-pointer">
                Back to Search
             </p>
          </div>

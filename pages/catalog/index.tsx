@@ -1,14 +1,54 @@
+import { useState, useEffect } from "react";
+import { GetServerSideProps } from "next";
+import axios from "axios";
+
 import TitlePage from "@/components/children/TitlePage";
 import Filter from "@/components/Filter";
+import ProductBlock from "@/components/children/ProductBlock";
+
 import { IoMdClose } from "react-icons/io";
-
 import { TbFilterSearch } from "react-icons/tb";
-import Item from "@/components/children/Item";
-import { useState } from "react";
 
-interface CatalogProps {}
-const Catalog: React.FC<CatalogProps> = () => {
+// export const getStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async ({ query }) => {
+   const products = await axios.get(
+      "https://sea-lion-app-p33f7.ondigitalocean.app/products"
+   );
+   const categories = await axios.get(
+      "https://sea-lion-app-p33f7.ondigitalocean.app/categories"
+   );
+
+   return {
+      props: {
+         products: products.data,
+         categories: categories.data,
+      },
+   };
+};
+
+interface CatalogProps {
+   products: any;
+   categories: any;
+}
+
+const Catalog: React.FC<CatalogProps> = ({ products, categories }) => {
    const [hide, setHide] = useState(false);
+   const [value, setValue] = useState("");
+   const [search, setSearch] = useState<any>();
+   const [selectedCategories, setSelectedCategories] = useState([]);
+
+   useEffect(() => {
+      let stringified = selectedCategories.join(",");
+      let query = "?category=" + stringified;
+
+      if (stringified.length !== 0) {
+         axios
+            .get(
+               "https://sea-lion-app-p33f7.ondigitalocean.app/products" + query
+            )
+            .then((res) => console.log({ res }));
+      }
+   }, [selectedCategories]);
 
    return (
       <>
@@ -31,6 +71,7 @@ const Catalog: React.FC<CatalogProps> = () => {
 
                <div className="max-w-xs max-md:max-w-[200px] w-full">
                   <input
+                     onChange={(e) => setValue(e.target.value)}
                      className="w-full border p-3 max-lg:py-2 max-sm:p-2 rounded-lg"
                      placeholder="Search"
                      type="search"
@@ -38,15 +79,19 @@ const Catalog: React.FC<CatalogProps> = () => {
                </div>
             </div>
          </div>
-         <div className="custom-container">
+         <div className="custom-container max-sm:px-2">
             <div className="flex gap-20 max-xl:gap-10">
                <aside
                   className={`max-w-[250px] max-2xl:max-w-[200px] max-lg:max-w-full h-full w-full max-lg:fixed max-lg:z-50 max-lg:top-0 max-lg:left-0 max-lg:p-5 lg:sticky top-24 max-lg:overflow-x-auto max-lg:bg-white ${
                      hide ? "block" : "max-lg:hidden"
                   }`}
                >
-                  <Filter />
-                  
+                  <Filter
+                     categories={categories}
+                     selectedCategories={selectedCategories}
+                     handleCategoryChange={setSelectedCategories}
+                  />
+
                   <button
                      onClick={() => setHide(false)}
                      className="absolute top-5 right-5 hidden max-lg:block"
@@ -56,10 +101,10 @@ const Catalog: React.FC<CatalogProps> = () => {
                </aside>
 
                <div className="w-full mb-28 max-xl:mb-24 max-md:mb-14">
-                  <div className="grid grid-cols-3 max-xl:grid-cols-2 max-xs:grid-cols-1 gap-8 max-xl:gap-3 max-md:gap-2">
-                     {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((item: number) => (
-                        <Item key={item} item={item} />
-                     ))}
+                  <div className="grid grid-cols-3 max-xl:grid-cols-2 gap-8 max-xl:gap-3 max-md:gap-2 max-xs:gap-1">
+                     {products.data.map((item: any) => {
+                        return <ProductBlock key={item._id} item={item} />;
+                     })}
                   </div>
                </div>
             </div>

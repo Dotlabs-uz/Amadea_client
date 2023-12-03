@@ -32,7 +32,7 @@ const Header: React.FC<HeaderProps> = () => {
                   }`}
                >
                   <button
-                     className="absolute top-5 right-5"
+                     className="max-md:block hidden absolute top-5 right-5"
                      onClick={() => setHide(false)}
                   >
                      <IoMdClose size={25} color="red" />

@@ -22,4 +22,8 @@ html {
 	@apply max-w-[1320px] w-full m-auto px-24 max-lg:px-14 max-md:px-5;
 }
 
+.swiper-slide {
+	height: auto !important;
+}
+
 @import "/styles/employees.scss";

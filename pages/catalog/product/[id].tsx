@@ -1,20 +1,43 @@
 import Link from "next/link";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
+import { GetServerSideProps } from "next";
+import axios from "axios";
 
-import Item from "@/components/children/Item";
+import ProductBlock from "@/components/children/ProductBlock";
 import TitleCon from "@/components/children/TitleCon";
 import InfoItem from "@/containers/InfoItem";
 import TitlePage from "@/components/children/TitlePage";
 
-interface ProductProps {}
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
 
-const Product: React.FC<ProductProps> = () => {
+export const getServerSideProps: GetServerSideProps = async ({ query }) => {
+   const { id } = query;
+
+   const products = await axios.get(
+      "https://sea-lion-app-p33f7.ondigitalocean.app/products"
+   );
+   const product = await axios.get(
+      `https://sea-lion-app-p33f7.ondigitalocean.app/products/${id}`
+   );
+
+   return {
+      props: {
+         product: product.data,
+         products: products.data,
+      },
+   };
+};
+
+interface ProductProps {
+   product: any;
+   products: any;
+}
+const Product: React.FC<ProductProps> = ({ product, products }) => {
    return (
       <>
-         <TitlePage>Product Name</TitlePage>
-         
-         <InfoItem />
+         <TitlePage>{product.name}</TitlePage>
+
+         <InfoItem product={product} />
          <section className="bg-[#E8EDDE]">
             <div className="custom-container py-7">
                <div className="mb-5">
@@ -66,12 +89,14 @@ const Product: React.FC<ProductProps> = () => {
                   },
                }}
             >
-               {[0, 1, 2, 3].map((item: number) => {
-                  return (
-                     <SwiperSlide key={item}>
-                        <Item item={item} />
-                     </SwiperSlide>
-                  );
+               {products.data.map((item: any) => {
+                  if (item.category.name === product.category.name) {
+                     return (
+                        <SwiperSlide key={item._id}>
+                           <ProductBlock item={item} />
+                        </SwiperSlide>
+                     );
+                  }
                })}
             </Swiper>
          </section>
