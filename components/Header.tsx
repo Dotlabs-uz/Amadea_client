@@ -38,16 +38,28 @@ const Header: React.FC<HeaderProps> = () => {
                      <IoMdClose size={25} color="red" />
                   </button>
                   <ul className="flex max-md:flex-col items-center max-md:items-start justify-between gap-20 max-xl:gap-10 max-md:gap-5 max-md:p-5">
-                     <li className="max-md:text-lg">
+                     <li
+                        onClick={() => setHide(false)}
+                        className="max-md:text-lg"
+                     >
+                        <Link href={"/"}>Home</Link>
+                     </li>
+                     <li
+                        onClick={() => setHide(false)}
+                        className="max-md:text-lg"
+                     >
                         <Link href={"/catalog"}>Catalog</Link>
                      </li>
-                     <li className="max-md:text-lg">
-                        <Link href={"#"}>Products</Link>
-                     </li>
-                     <li className="max-md:text-lg">
+                     <li
+                        onClick={() => setHide(false)}
+                        className="max-md:text-lg"
+                     >
                         <Link href={"/aboutUs"}>About us</Link>
                      </li>
-                     <li className="max-md:text-lg">
+                     <li
+                        onClick={() => setHide(false)}
+                        className="max-md:text-lg"
+                     >
                         <Link href={"#"}>Contact us</Link>
                      </li>
                   </ul>

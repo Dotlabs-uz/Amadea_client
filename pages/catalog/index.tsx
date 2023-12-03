@@ -8,6 +8,7 @@ import ProductBlock from "@/components/children/ProductBlock";
 
 import { IoMdClose } from "react-icons/io";
 import { TbFilterSearch } from "react-icons/tb";
+import Head from "next/head";
 
 // export const getStaticProps = async () => {
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
@@ -52,6 +53,19 @@ const Catalog: React.FC<CatalogProps> = ({ products, categories }) => {
 
    return (
       <>
+         <Head>
+            <meta charSet="UTF-8" />
+            <title>Amadea | Catalog</title>
+            <link rel="icon" type="image/x-icon" href="/images/logo.svg"></link>
+            <meta
+               name="viewport"
+               content="width=device-width, initial-scale=1.0"
+            />
+            <meta name="description" content="" />
+            <meta name="keywords" content="Amadea" />
+            <meta name="author" content="Amadea" />
+         </Head>
+
          <section>
             <div className="mb-32 max-xl:mb-24 max-lg:mb-14 max-sm:mb-7">
                <TitlePage>Catalog</TitlePage>
