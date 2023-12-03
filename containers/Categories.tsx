@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
 import Image from "next/image";
+import Link from "next/link";
 
 interface CategoriesProps {}
 
@@ -36,17 +37,17 @@ const Categories: React.FC<CategoriesProps> = () => {
                   {[0, 1, 2, 3, 4].map((item: number) => {
                      return (
                         <SwiperSlide key={item}>
-                           <div className="">
+                           <Link href={"/catalog"}>
                               <div className="">
                                  <img
                                     src={"/images/categories.png"}
                                     alt="categories"
                                  />
                               </div>
-                              <div className="">
+                              <div className="text-center">
                                  <p>Наборы для ПЦР</p>
                               </div>
-                           </div>
+                           </Link>
                         </SwiperSlide>
                      );
                   })}
