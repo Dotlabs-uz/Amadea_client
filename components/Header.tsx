@@ -1,11 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
+import { IoMdClose } from "react-icons/io";
 
 import { GiHamburgerMenu } from "react-icons/gi";
 
 interface HeaderProps {}
 
 const Header: React.FC<HeaderProps> = () => {
+   const [hide, setHide] = useState(false);
+
    return (
       <header className="shadow-md">
          <div className="custom-container flex items-center justify-between py-5">
@@ -20,18 +24,42 @@ const Header: React.FC<HeaderProps> = () => {
                </Link>
             </div>
             <div className=" flex justify-between">
-               <nav className="max-md:hidden">
-                  <ul className="flex items-center justify-between gap-20 max-xl:gap-10 ">
-                     <li>
+               <nav
+                  className={`${
+                     hide
+                        ? "w-full h-full max-md:fixed z-[60] top-0 left-0 block bg-white"
+                        : "max-md:hidden"
+                  }`}
+               >
+                  <button
+                     className="max-md:block hidden absolute top-5 right-5"
+                     onClick={() => setHide(false)}
+                  >
+                     <IoMdClose size={25} color="red" />
+                  </button>
+                  <ul className="flex max-md:flex-col items-center max-md:items-start justify-between gap-20 max-xl:gap-10 max-md:gap-5 max-md:p-5">
+                     <li
+                        onClick={() => setHide(false)}
+                        className="max-md:text-lg"
+                     >
+                        <Link href={"/"}>Home</Link>
+                     </li>
+                     <li
+                        onClick={() => setHide(false)}
+                        className="max-md:text-lg"
+                     >
                         <Link href={"/catalog"}>Catalog</Link>
                      </li>
-                     <li>
-                        <Link href={"#"}>Products</Link>
+                     <li
+                        onClick={() => setHide(false)}
+                        className="max-md:text-lg"
+                     >
+                        <Link href={"/aboutUs"}>About us</Link>
                      </li>
-                     <li>
-                        <Link href={"#"}>About us</Link>
-                     </li>
-                     <li>
+                     <li
+                        onClick={() => setHide(false)}
+                        className="max-md:text-lg"
+                     >
                         <Link href={"#"}>Contact us</Link>
                      </li>
                   </ul>
@@ -55,7 +83,7 @@ const Header: React.FC<HeaderProps> = () => {
                </div>
 
                <div className="max-md:block hidden">
-                  <button>
+                  <button onClick={() => setHide(true)}>
                      <GiHamburgerMenu />
                   </button>
                </div>
