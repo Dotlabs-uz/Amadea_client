@@ -36,8 +36,8 @@ interface ProductProps {
 const Product: React.FC<ProductProps> = ({ product, products }) => {
     return (
         <>
-            <Head>
-                <meta charSet="UTF-8" />
+            {/* <Head> */}
+                {/* <meta charSet="UTF-8" />
                 <title>Amadea | Catalog</title>
                 <link
                     rel="icon"
@@ -51,7 +51,7 @@ const Product: React.FC<ProductProps> = ({ product, products }) => {
                 <meta name="description" content={product?.description} />
                 <meta name="keywords" content={product?.name} />
                 <meta name="author" content="Amadea" />
-            </Head>
+            </Head> */}
             <TitlePage>{product.name}</TitlePage>
 
             <InfoItem product={product} />
