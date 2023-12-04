@@ -50,41 +50,39 @@ const Accordion: React.FC<AccordionProps> = ({
 								<p>All</p>
 							</label>
 						</li>
-						{categories.length &&
-							categories.map((item: any) => {
-								return (
-									<li
-										key={item._id}
-										onClick={() => {
-											if (
-												selectedCategories.includes(
-													item._id
+						{categories.map((item: any) => {
+							return (
+								<li
+									key={item._id}
+									onClick={() => {
+										if (
+											selectedCategories.includes(
+												item._id
+											)
+										) {
+											handleCategoryChange(
+												selectedCategories.filter(
+													(el: any) => el !== item._id
 												)
-											) {
-												handleCategoryChange(
-													selectedCategories.filter(
-														(el: any) =>
-															el !== item._id
-													)
-												);
-											} else {
-												handleCategoryChange([
-													...selectedCategories,
-													item._id,
-												]);
-											}
-										}}
-									>
-										<label className="flex items-center gap-3 mb-2">
-											<input
-												name="category"
-												type="checkbox"
-											/>
-											<p>{item.name}</p>
-										</label>
-									</li>
-								);
-							})}
+											);
+										} else {
+											handleCategoryChange([
+												...selectedCategories,
+												item._id,
+											]);
+										}
+									}}
+								>
+									<label className="flex items-center gap-3 mb-2">
+										<input
+											name="category"
+											type="checkbox"
+										/>
+										<p>{item.name}</p>
+									</label>
+								</li>
+							);
+						})}
 					</ul>
 				</div>
 			) : null}

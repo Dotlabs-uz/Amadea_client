@@ -61,26 +61,11 @@ const Catalog: React.FC<CatalogProps> = ({ products, categories }) => {
 
 	return (
 		<>
-			{/* <Head>
-				<meta charSet="UTF-8" />
+			<Head>
 				<title>Amadea | Catalog</title>
-				<link
-					rel="icon"
-					type="image/x-icon"
-					href="/images/logo.svg"
-				></link>
-				<meta
-					name="viewport"
-					content="width=device-width, initial-scale=1.0"
-				/>
-				<meta name="description" content="" />
-				<meta name="keywords" content="Amadea" />
-				<meta name="author" content="Amadea" />
-			</Head> */}
+			</Head>
 
-         <h1>CHECKING......</h1>
-
-			{/* <section>
+			<section>
 				<div className="mb-32 max-xl:mb-24 max-lg:mb-14 max-sm:mb-7">
 					<TitlePage>Catalog</TitlePage>
 				</div>
@@ -130,19 +115,15 @@ const Catalog: React.FC<CatalogProps> = ({ products, categories }) => {
 
 					<div className="w-full mb-28 max-xl:mb-24 max-md:mb-14">
 						<div className="grid grid-cols-3 max-xl:grid-cols-2 gap-8 max-xl:gap-3 max-md:gap-2 max-xs:gap-1">
-							{products.length &&
-								products.data.map((item: any) => {
-									return (
-										<ProductBlock
-											key={item._id}
-											item={item}
-										/>
-									);
-								})}
+							{products.data.map((item: any) => {
+								return (
+									<ProductBlock key={item._id} item={item} />
+								);
+							})}
 						</div>
 					</div>
 				</div>
-			</div> */}
+			</div>
 		</>
 	);
 };
