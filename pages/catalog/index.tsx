@@ -49,7 +49,7 @@ const Catalog: React.FC<CatalogProps> = ({ products, categories }) => {
             .then((res) => console.log({ res }));
       }
    }, [selectedCategories]);
-
+   
    return (
       <>
          <Head>

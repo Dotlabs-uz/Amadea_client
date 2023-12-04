@@ -4,11 +4,26 @@ import { useState } from "react";
 import { IoMdClose } from "react-icons/io";
 
 import { GiHamburgerMenu } from "react-icons/gi";
+import { useRouter } from "next/router";
 
 interface HeaderProps {}
 
 const Header: React.FC<HeaderProps> = () => {
    const [hide, setHide] = useState(false);
+   const router = useRouter();
+   const { locale } = router;
+   const [localeValue, setLocaleValue] = useState<any>(locale);
+
+   const changeLang = (e: any) => {
+      const locale = e.target.value;
+      
+      router.push(
+         { pathname: router.pathname, query: router.query },
+         router.asPath,
+         { locale }
+      );
+      setLocaleValue(locale);
+   };
 
    return (
       <header className="shadow-md">
@@ -66,10 +81,10 @@ const Header: React.FC<HeaderProps> = () => {
                </nav>
             </div>
             <div className="max-md:hidden">
-               <select>
-                  <option value="">RU</option>
-                  <option value="">UZ</option>
-                  <option value="">EN</option>
+               <select title="Change Language" onChange={(e: any) => changeLang(e)}>
+                  <option value="ru">RU</option>
+                  <option value="uz">UZ</option>
+                  <option value="en">EN</option>
                </select>
             </div>
             <div className="flex items-center gap-5">
