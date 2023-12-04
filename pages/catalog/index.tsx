@@ -78,7 +78,9 @@ const Catalog: React.FC<CatalogProps> = ({ products, categories }) => {
 				<meta name="author" content="Amadea" />
 			</Head>
 
-			<section>
+         <h1>CHECKING......</h1>
+
+			{/* <section>
 				<div className="mb-32 max-xl:mb-24 max-lg:mb-14 max-sm:mb-7">
 					<TitlePage>Catalog</TitlePage>
 				</div>
@@ -140,7 +142,7 @@ const Catalog: React.FC<CatalogProps> = ({ products, categories }) => {
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> */}
 		</>
 	);
 };
