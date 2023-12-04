@@ -29,8 +29,8 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 		return {
 			props: {
 				products: [],
-				categories: []
-			}
+				categories: [],
+			},
 		};
 	}
 };
@@ -128,11 +128,15 @@ const Catalog: React.FC<CatalogProps> = ({ products, categories }) => {
 
 					<div className="w-full mb-28 max-xl:mb-24 max-md:mb-14">
 						<div className="grid grid-cols-3 max-xl:grid-cols-2 gap-8 max-xl:gap-3 max-md:gap-2 max-xs:gap-1">
-							{products.data.map((item: any) => {
-								return (
-									<ProductBlock key={item._id} item={item} />
-								);
-							})}
+							{products.length &&
+								products.data.map((item: any) => {
+									return (
+										<ProductBlock
+											key={item._id}
+											item={item}
+										/>
+									);
+								})}
 						</div>
 					</div>
 				</div>
