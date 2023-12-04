@@ -61,10 +61,6 @@ const Catalog: React.FC<CatalogProps> = ({ products, categories }) => {
 
 	return (
 		<>
-			<Head>
-				<title>Amadea | Catalog</title>
-			</Head>
-
 			<section>
 				<div className="mb-32 max-xl:mb-24 max-lg:mb-14 max-sm:mb-7">
 					<TitlePage>Catalog</TitlePage>
