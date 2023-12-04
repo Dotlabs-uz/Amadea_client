@@ -41,13 +41,13 @@ const Catalog: React.FC<CatalogProps> = ({ products, categories }) => {
       let stringified = selectedCategories.join(",");
       let query = "?category=" + stringified;
 
-      if (stringified.length !== 0) {
-         axios
-            .get(
-               "https://sea-lion-app-p33f7.ondigitalocean.app/products" + query
-            )
-            .then((res) => console.log({ res }));
-      }
+      // if (stringified.length !== 0) {
+      //    axios
+      //       .get(
+      //          "https://sea-lion-app-p33f7.ondigitalocean.app/products" + query
+      //       )
+      //       .then((res) => console.log({ res }));
+      // }
    }, [selectedCategories]);
 
    return (
