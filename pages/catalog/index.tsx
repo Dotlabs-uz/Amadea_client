@@ -11,25 +11,28 @@ import { TbFilterSearch } from "react-icons/tb";
 import Head from "next/head";
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
-	const products = await axios.get(process.env.NEXT_PUBLIC_API + "/products");
-	const categories = await axios.get(
-		process.env.NEXT_PUBLIC_API + "/categories"
-	);
+	try {
+		const products = await axios.get(
+			process.env.NEXT_PUBLIC_API + "/products"
+		);
+		const categories = await axios.get(
+			process.env.NEXT_PUBLIC_API + "/categories"
+		);
 
-	if (products.status !== 200 && products.status !== 201) {
 		return {
 			props: {
-				products,
-				categories,
+				products: products.data,
+				categories: categories.data,
 			},
 		};
+	} catch (e) {
+		return {
+			props: {
+				products: [],
+				categories: []
+			}
+		};
 	}
-	return {
-		props: {
-			products: products.data,
-			categories: categories.data,
-		},
-	};
 };
 
 interface CatalogProps {
