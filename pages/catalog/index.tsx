@@ -10,13 +10,12 @@ import { IoMdClose } from "react-icons/io";
 import { TbFilterSearch } from "react-icons/tb";
 import Head from "next/head";
 
-// export const getStaticProps = async () => {
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
    const products = await axios.get(
-      "https://sea-lion-app-p33f7.ondigitalocean.app/products"
+      process.env.NEXT_PUBLIC_API + "/products"
    );
    const categories = await axios.get(
-      "https://sea-lion-app-p33f7.ondigitalocean.app/categories"
+      process.env.NEXT_PUBLIC_API + "/categories"
    );
 
    return {

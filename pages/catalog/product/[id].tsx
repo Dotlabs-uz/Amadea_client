@@ -14,10 +14,10 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
    const { id } = query;
 
    const products = await axios.get(
-      "https://sea-lion-app-p33f7.ondigitalocean.app/products"
+      `${process.env.NEXT_PUBLIC_API}/products`
    );
    const product = await axios.get(
-      `https://sea-lion-app-p33f7.ondigitalocean.app/products/${id}`
+      `${process.env.NEXT_PUBLIC_API}/products/${id}`
    );
 
    return {
