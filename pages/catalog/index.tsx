@@ -61,7 +61,7 @@ const Catalog: React.FC<CatalogProps> = ({ products, categories }) => {
 
 	return (
 		<>
-			<Head>
+			{/* <Head>
 				<meta charSet="UTF-8" />
 				<title>Amadea | Catalog</title>
 				<link
@@ -76,7 +76,7 @@ const Catalog: React.FC<CatalogProps> = ({ products, categories }) => {
 				<meta name="description" content="" />
 				<meta name="keywords" content="Amadea" />
 				<meta name="author" content="Amadea" />
-			</Head>
+			</Head> */}
 
          <h1>CHECKING......</h1>
 
