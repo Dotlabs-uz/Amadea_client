@@ -9,6 +9,7 @@ import ProductBlock from "@/components/children/ProductBlock";
 import { IoMdClose } from "react-icons/io";
 import { TbFilterSearch } from "react-icons/tb";
 import Head from "next/head";
+import { useRouter } from "next/router";
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 	try {
@@ -45,21 +46,33 @@ const Catalog: React.FC<CatalogProps> = ({ products, categories }) => {
 	const [value, setValue] = useState("");
 	const [search, setSearch] = useState<any>();
 	const [selectedCategories, setSelectedCategories] = useState([]);
+	const [products_arr, serProducts] = useState(products)
+	const router = useRouter();
 
 	useEffect(() => {
 		let stringified = selectedCategories.join(",");
 		let query = "?category=" + stringified;
 
-      if (stringified.length !== 0) {
-         axios
-            .get(
-               "https://sea-lion-app-p33f7.ondigitalocean.app/products" + query
-            )
-            .then((res) => console.log({ res }));
-      }
-   }, [selectedCategories]);
-   
-
+		if (stringified.length !== 0) {
+			axios
+				.get(
+					"https://sea-lion-app-p33f7.ondigitalocean.app/products" +
+						query
+				)
+				.then((res) => console.log({ res }));
+		} else if (router.query?.category) {
+			axios
+				.get(
+					"https://sea-lion-app-p33f7.ondigitalocean.app/products?cagegory=" +
+					router.query?.category
+				)
+				.then((res) => {
+					console.log(res);
+					
+					serProducts(res.data.data)
+				});	
+		}
+	}, [selectedCategories]);
 
 	return (
 		<>
