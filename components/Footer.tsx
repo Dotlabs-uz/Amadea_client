@@ -1,3 +1,5 @@
+import { useContext, useState } from "react";
+import Context from "@/context/useTranslate";
 import Link from "next/link";
 
 import { BsInstagram } from "react-icons/bs";
@@ -6,22 +8,24 @@ import { FaTelegramPlane } from "react-icons/fa";
 interface FooterProps {}
 
 const Footer: React.FC<FooterProps> = () => {
+   const translation: any = useContext(Context);
+
    return (
       <footer>
          <div className="custom-container">
             <nav className="max-w-xl w-full m-auto mb-10">
                <ul className="flex max-sm:flex-col items-center md:justify-between max-md:justify-center gap-20 max-xl:gap-10 max-md:gap-5">
                   <li className="font-medium">
-                     <Link href={"#"}>Home</Link>
+                     <Link href={"/"}>{translation.header.nav1}</Link>
                   </li>
                   <li className="font-medium">
-                     <Link href={"#"}>Products</Link>
+                     <Link href={"/catalog"}>{translation.header.nav2}</Link>
                   </li>
                   <li className="font-medium">
-                     <Link href={"#"}>About us</Link>
+                     <Link href={"/aboutUs"}>{translation.header.nav3}</Link>
                   </li>
                   <li className="font-medium">
-                     <Link href={"#"}>Contact us</Link>
+                     <Link href={"/conactUs"}>{translation.header.nav4}</Link>
                   </li>
                </ul>
             </nav>

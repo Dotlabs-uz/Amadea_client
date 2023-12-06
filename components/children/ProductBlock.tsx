@@ -5,54 +5,50 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 interface ProductBlockProps {
-    item: any;
+   item: any;
 }
 
 const ProductBlock: React.FC<ProductBlockProps> = ({ item }) => {
-    const router = useRouter();
-    const { locale } = router;
-    const [title, setTitle] = useState("");
+   const router = useRouter();
+   const { locale } = router;
+   const [title, setTitle] = useState("");
 
-    useEffect(() => {
-        const text = locale === "uz"
-                ? "uzTitle"
-                : locale === "en"
-                ? "engTitle"
-                : "ruTitle";
+   useEffect(() => {
+      const text =
+         locale === "uz" ? "uzTitle" : locale === "en" ? "engTitle" : "ruTitle";
 
-        setTitle(item.titles[text])
-       
-    }, [locale]);
+      setTitle(item.titles[text]);
+   }, [locale]);
 
-    return (
-        <div className="max-xs:max-w-xs w-full min-h-[440px] max-sm:min-h-[300px] h-full m-auto flex flex-col items-center p-5 max-md:p-3 max-xs:p-2 rounded-2xl shadow-[0_8px_23px_#506b5221]">
-            <div className="w-full h-full max-sm:h-[220px] overflow-hidden mb-6 max-md:mb-2">
-                <img
-                    src={item.image}
-                    alt="product"
-                    className="w-full h-full object-cover"
-                />
-                {/* <Image
+   return (
+      <div className="max-xs:max-w-xs w-full h-full m-auto flex flex-col items-center p-5 max-md:p-3 max-xs:p-2 rounded-2xl shadow-[0_8px_23px_#506b5221]">
+         <div className="max-w-[200px] w-full h-[200px] max-xs:h-[150px] overflow-hidden mb-6 max-md:mb-2">
+            <img
+               src={item.image}
+               alt="product"
+               className="w-full h-full object-cover object-center"
+            />
+            {/* <Image
                className="w-full h-full object-cover"
                src={item.image}
                width={1000}
                height={1000}
                alt="photo"
             /> */}
-            </div>
-            <div className="w-full mt-auto">
-                <p>{title}</p>
-                <p>$ {item.price}</p>
+         </div>
+         <div className="w-full mt-auto">
+            <p>{title}</p>
+            <p>$ {item.price}</p>
 
-                <Link
-                    href={`/catalog/product/${item._id}`}
-                    className="w-full block mt-4 py-3 max-md:py-2 text-[20px] max-md:text-[16px] font-bold text-center rounded-lg duration-150 ease-in bg-[#50806B] hover:bg-[#568b75] text-white"
-                >
-                    Learn More
-                </Link>
-            </div>
-        </div>
-    );
+            <Link
+               href={`/catalog/product/${item._id}`}
+               className="w-full block mt-4 py-3 max-md:py-2 text-[20px] max-md:text-[16px] max-xs:text-sm font-bold text-center rounded-lg duration-150 ease-in bg-[#50806B] hover:bg-[#568b75] text-white"
+            >
+               Learn More
+            </Link>
+         </div>
+      </div>
+   );
 };
 
 export default ProductBlock;

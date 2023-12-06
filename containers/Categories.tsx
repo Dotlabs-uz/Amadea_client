@@ -1,33 +1,40 @@
-import TitleCoc from "@/components/children/TitleCon";
+/* eslint-disable @next/next/no-img-element */
+import { useContext } from "react";
+import Context from "@/context/useTranslate";
+import Image from "next/image";
+import Link from "next/link";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
-import Image from "next/image";
-import Link from "next/link";
+import TitleCoc from "@/components/children/TitleCon";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-interface CategoriesProps {}
+interface CategoriesProps {
+   categories: any;
+}
 
 const Categories: React.FC<CategoriesProps> = () => {
+   const translation: any = useContext(Context);
+
    const [categories, setCategories] = useState<any>([]);
 
    useEffect(() => {
       try {
-         axios.get(process.env.NEXT_PUBLIC_API + "/categories")
-            .then(res => {
-               setCategories(res.data.data)
-            })
-      } catch(e) {
-         alert('Network error please check the network connection!')
+         axios.get(process.env.NEXT_PUBLIC_API + "/categories").then((res) => {
+            setCategories(res.data.data);
+         });
+      } catch (e) {
+         alert("Network error please check the network connection!");
       }
    }, []);
+
    return (
-      <section className="mb-28 max-xl:mb-24 max-md:mb-14">
+      <section id="categories" className="mb-28 max-xl:mb-24 max-md:mb-14">
          <div className="custom-container">
             <div className="">
-               <TitleCoc>Product Categories</TitleCoc>
+               <TitleCoc>{translation.categories.title}</TitleCoc>
             </div>
             <div>
                <Swiper
@@ -36,15 +43,18 @@ const Categories: React.FC<CategoriesProps> = () => {
                   breakpoints={{
                      0: {
                         slidesPerView: 2,
+                        spaceBetween: 10,
                      },
                      540: {
                         slidesPerView: 3,
+                        spaceBetween: 15,
                      },
                      720: {
                         slidesPerView: 4,
                      },
                      960: {
                         slidesPerView: 5,
+                        spaceBetween: 20,
                      },
                   }}
                >
@@ -52,15 +62,15 @@ const Categories: React.FC<CategoriesProps> = () => {
                      return (
                         <SwiperSlide key={item}>
                            <Link href={"/catalog?category=" + item._id}>
-                              <div className="flex flex-col items-center bg-whtite" >
+                              <div className="max-w-[200px] w-full h-[180px] max-xs:h-[150px]">
                                  <img
-                                    className="max-h-[200px] object-cover"
+                                    className="w-full h-full object-contain"
                                     src={item.image}
                                     alt="categories"
                                  />
                               </div>
-                              <div className="text-center">
-                                 <p>{item.name}</p>
+                              <div className="w-full mt-auto">
+                                 <p className="text-center mt-2">{item.name}</p>
                               </div>
                            </Link>
                         </SwiperSlide>
