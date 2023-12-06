@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { useContext } from "react";
 import Context from "@/context/useTranslate";
 import Image from "next/image";
@@ -7,14 +8,27 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
 import TitleCoc from "@/components/children/TitleCon";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 interface CategoriesProps {
    categories: any;
 }
 
-const Categories: React.FC<CategoriesProps> = ({ categories }) => {
+const Categories: React.FC<CategoriesProps> = () => {
    const translation: any = useContext(Context);
-   console.log(categories.data);
+
+   const [categories, setCategories] = useState<any>([]);
+
+   useEffect(() => {
+      try {
+         axios.get(process.env.NEXT_PUBLIC_API + "/categories").then((res) => {
+            setCategories(res.data.data);
+         });
+      } catch (e) {
+         alert("Network error please check the network connection!");
+      }
+   }, []);
 
    return (
       <section id="categories" className="mb-28 max-xl:mb-24 max-md:mb-14">
@@ -44,13 +58,10 @@ const Categories: React.FC<CategoriesProps> = ({ categories }) => {
                      },
                   }}
                >
-                  {categories.data.map((item: any) => {
+                  {categories.map((item: any) => {
                      return (
-                        <SwiperSlide key={item._id}>
-                           <Link
-                              className="flex flex-col justify-center"
-                              href={"/catalog"}
-                           >
+                        <SwiperSlide key={item}>
+                           <Link href={"/catalog?category=" + item._id}>
                               <div className="max-w-[200px] w-full h-[180px] max-xs:h-[150px]">
                                  <img
                                     className="w-full h-full object-contain"
@@ -58,7 +69,7 @@ const Categories: React.FC<CategoriesProps> = ({ categories }) => {
                                     alt="categories"
                                  />
                               </div>
-                              <div className="w-full">
+                              <div className="w-full mt-auto">
                                  <p className="text-center mt-2">{item.name}</p>
                               </div>
                            </Link>

@@ -10,6 +10,7 @@ import ProductBlock from "@/components/children/ProductBlock";
 import { IoMdClose } from "react-icons/io";
 import { TbFilterSearch } from "react-icons/tb";
 import Head from "next/head";
+import { useRouter } from "next/router";
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
    try {
@@ -47,6 +48,8 @@ const Catalog: React.FC<CatalogProps> = ({ products, categories }) => {
    const [value, setValue] = useState("");
    const [search, setSearch] = useState<any>();
    const [selectedCategories, setSelectedCategories] = useState([]);
+   const [products_arr, serProducts] = useState(products);
+   const router = useRouter();
 
    useEffect(() => {
       let stringified = selectedCategories.join(",");
