@@ -1,42 +1,49 @@
-import TitleCoc from "@/components/children/TitleCon";
+import { useContext } from "react";
+import Context from "@/context/useTranslate";
 import Image from "next/image";
 
+import TitleCoc from "@/components/children/TitleCon";
 interface AboutUsProps {}
 
 const AboutUs: React.FC<AboutUsProps> = () => {
+   const translation: any = useContext(Context);
+   const arr = [
+      {
+         id: 0,
+         text1: translation.aboutUs.text1,
+         text2: translation.aboutUs.text2,
+      },
+      {
+         id: 1,
+         text1: translation.aboutUs.text3,
+         text2: translation.aboutUs.text4,
+      },
+   ];
+
    return (
       <section className="mb-28 max-xl:mb-24 max-md:mb-14">
          <div className="custom-container">
             <div className="">
-               <TitleCoc>About Us</TitleCoc>
+               <TitleCoc>{translation.aboutUs.title}</TitleCoc>
             </div>
-            <div className="flex flex-col max-md:gap-8">
-               {[0, 1].map((item: number) => {
+            <div className="flex flex-col max-lg:gap-8">
+               {arr.map((item: any) => {
                   return (
                      <div
-                        key={item}
+                        key={item.id}
                         className={`flex max-lg:flex-col items-center justify-between ${
-                           item == 1 ? "flex-row-reverse" : ""
+                           item.id == 1 ? "flex-row-reverse" : ""
                         }`}
                      >
                         <div className="w-[47%] max-lg:w-full">
-                           <p className="text-[24px] max-2xl:text-[20px]  font-semibold">
-                              Technical <br /> Support
-                           </p>
-                           <h3 className="text-[36px] max-2xl:text-[32px] max-xl:text-[28px] max-lg:text-[24px] leading-[45px] max-xl:leading-[30px] font-semibold tracking-[-1px]">
-                              Best in class tech support for your company. We
-                              become your tech backbone.
+                           <h3 className="text-xl font-semibold tracking-[-1px]">
+                              {item.text1}
                            </h3>
-                           <p className="mt-6 max-lg:mt-2 max-2xl:text-[14px] text-[#232536]">
-                              Through True Rich Attended does no end it his
-                              mother since real had half every him case in
-                              packages enquire we up ecstatic unsatiable saw his
-                              giving Remain expense you position concluded.
-                              Through True Rich Attended does no end it his
-                              mother since real had half every.
+                           <p className="mt-6 max-xl:mt-2 text-[14px] text-[#232536]">
+                              {item.text2}
                            </p>
                         </div>
-                        <div className="w-1/2 max-xs:w-full max-lg:mt-5">
+                        <div className="w-1/2 max-md:w-3/5 max-xs:w-full max-lg:mt-5">
                            <Image
                               src={"/images/aboutUs.jpg"}
                               width={1000}

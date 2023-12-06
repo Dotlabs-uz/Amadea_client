@@ -1,6 +1,7 @@
+import { useContext, useState } from "react";
+import Context from "@/context/useTranslate";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 import { IoMdClose } from "react-icons/io";
 
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -9,6 +10,7 @@ import { useRouter } from "next/router";
 interface HeaderProps {}
 
 const Header: React.FC<HeaderProps> = () => {
+   const translation: any = useContext(Context);
    const [hide, setHide] = useState(false);
    const router = useRouter();
    const { locale } = router;
@@ -16,7 +18,7 @@ const Header: React.FC<HeaderProps> = () => {
 
    const changeLang = (e: any) => {
       const locale = e.target.value;
-      
+
       router.push(
          { pathname: router.pathname, query: router.query },
          router.asPath,
@@ -57,31 +59,36 @@ const Header: React.FC<HeaderProps> = () => {
                         onClick={() => setHide(false)}
                         className="max-md:text-lg"
                      >
-                        <Link href={"/"}>Home</Link>
+                        <Link href={"/"}>{translation.header.nav1}</Link>
                      </li>
                      <li
                         onClick={() => setHide(false)}
                         className="max-md:text-lg"
                      >
-                        <Link href={"/catalog"}>Catalog</Link>
+                        <Link href={"/catalog"}>{translation.header.nav2}</Link>
                      </li>
                      <li
                         onClick={() => setHide(false)}
                         className="max-md:text-lg"
                      >
-                        <Link href={"/aboutUs"}>About us</Link>
+                        <Link href={"/aboutUs"}>{translation.header.nav3}</Link>
                      </li>
                      <li
                         onClick={() => setHide(false)}
                         className="max-md:text-lg"
                      >
-                        <Link href={"#"}>Contact us</Link>
+                        <Link href={"/conactUs"}>
+                           {translation.header.nav4}
+                        </Link>
                      </li>
                   </ul>
                </nav>
             </div>
             <div className="max-md:hidden">
-               <select title="Change Language" onChange={(e: any) => changeLang(e)}>
+               <select
+                  title="Change Language"
+                  onChange={(e: any) => changeLang(e)}
+               >
                   <option value="ru">RU</option>
                   <option value="uz">UZ</option>
                   <option value="en">EN</option>
