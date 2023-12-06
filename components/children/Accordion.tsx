@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import Context from "@/context/useTranslate";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 
@@ -14,6 +14,7 @@ const Accordion: React.FC<AccordionProps> = ({
    selectedCategories,
 }) => {
    const translation: any = useContext(Context);
+
 
    return (
       <div className="p-3 overflow-hidden rounded-lg shadow-md bg-white">
@@ -61,7 +62,7 @@ const Accordion: React.FC<AccordionProps> = ({
                         }}
                      >
                         <label className="flex items-center gap-3 mb-2">
-                           <input name="category" type="checkbox" />
+                           <input type="checkbox" name="category" />
                            <p>{item.name}</p>
                         </label>
                      </li>

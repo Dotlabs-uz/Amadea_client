@@ -9,7 +9,7 @@ const uz = {
       title: "Моҳият химияси: лабораториядан реагентлар",
       subtitle:
          "Otkroyte mir ximii s nami: shirokiy vybor vysokokachestvennyx reagentov uchun nauki va promyshlennosti.",
-      button: "POSADAT",
+      button: "boshlash",
    },
    categories: {
       title: "Mahsulot toifasi",
