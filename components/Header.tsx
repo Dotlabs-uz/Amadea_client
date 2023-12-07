@@ -77,7 +77,7 @@ const Header: React.FC<HeaderProps> = () => {
                         onClick={() => setHide(false)}
                         className="max-md:text-lg"
                      >
-                        <Link href={"/conactUs"}>
+                        <Link href={"/contactUs"}>
                            {translation.header.nav4}
                         </Link>
                      </li>

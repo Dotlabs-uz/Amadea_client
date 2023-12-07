@@ -40,16 +40,6 @@ const Footer: React.FC<FooterProps> = () => {
                      <FaTelegramPlane size={25} />
                   </Link>
                </li>
-               <li>
-                  <Link href={"#"}>
-                     <BsInstagram size={25} />
-                  </Link>
-               </li>
-               <li>
-                  <Link href={"#"}>
-                     <FaTelegramPlane size={25} />
-                  </Link>
-               </li>
             </ul>
          </div>
          <div className="py-2 bg-[#50806B]">
