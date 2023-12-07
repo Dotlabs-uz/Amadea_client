@@ -98,10 +98,10 @@ const Header: React.FC<HeaderProps> = () => {
             <div className="flex items-center gap-5">
                <div className="">
                   <a
-                     href="tel:+998 (99) 999-9999"
+                     href="tel:+998955001522"
                      className="text-[20px] max-lg:text-[18px] max-sm:text-base font-semibold"
                   >
-                     +998 (99) 999-9999
+                     +998 (95) 500-15-22
                   </a>
                </div>
 
