@@ -9,19 +9,16 @@ interface InfoItemProps {
 
 const InfoItem: React.FC<InfoItemProps> = ({ product }) => {
    const router = useRouter();
-    const { locale } = router;
-    const [title, setTitle] = useState("");
+   const { locale } = router;
+   const [title, setTitle] = useState("");
 
-    useEffect(() => {
-        const text = locale === "uz"
-                ? "uzTitle"
-                : locale === "en"
-                ? "engTitle"
-                : "ruTitle";
+   useEffect(() => {
+      const text =
+         locale === "uz" ? "uzTitle" : locale === "en" ? "engTitle" : "ruTitle";
 
-        setTitle(product.titles[text])
-       
-    }, [locale]);
+      setTitle(product.titles[text]);
+   }, [locale]);
+
    return (
       <section className="custom-container flex max-md:flex-col gap-5 items-center justify-around max-xl:justify-between max-sm:pt-4 pb-28 max-xl:pb-24 max-md:pb-14">
          <div className="max-w-[40%] w-full max-md:hidden flex justify-center">
@@ -40,7 +37,7 @@ const InfoItem: React.FC<InfoItemProps> = ({ product }) => {
          </div>
          <div className="w-1/2 max-xl:w-[60%] max-md:w-full">
             <p className="text-6xl max-xl:text-5xl max-sm:text-4xl font-semibold mb-5 max-xl:mb-3">
-               {title}
+               {product.name}
             </p>
             <p className="mb-7 max-xl:mb-5">{product.price}$</p>
             <div className="max-w-full max-md:flex hidden justify-center px-10 mb-4">

@@ -9,7 +9,7 @@ const eng = {
       title: "Qualitative chemistry: reagents from the laboratory.",
       subtitle:
          "Explore the World of Chemistry with Us: A Wide Range of High-Quality Reagents for Science and Industry.",
-      button: "GET PLANTING",
+      button: "get started",
    },
    categories: {
       title: "Product Categories",
@@ -32,7 +32,7 @@ const eng = {
 
       search: "Search",
       allCategories: "All Categories",
-      all: "all",
+      all: "All",
    },
 
    // conactUs //

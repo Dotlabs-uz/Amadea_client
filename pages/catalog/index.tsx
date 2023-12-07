@@ -41,28 +41,55 @@ interface CatalogProps {
    products: any;
    categories: any;
 }
+interface Item {
+   id: number;
+   name: string;
+   isVisible: boolean;
+}
 
 const Catalog: React.FC<CatalogProps> = ({ products, categories }) => {
    const translation: any = useContext(Context);
    const [hide, setHide] = useState(false);
    const [value, setValue] = useState("");
-   const [search, setSearch] = useState<any>();
+   const [search, setSearch] = useState<any>([]);
    const [selectedCategories, setSelectedCategories] = useState([]);
-   const [products_arr, serProducts] = useState(products);
+   const [products_arr, setProducts] = useState(products.data);
    const router = useRouter();
 
+   console.log(search);
+
    useEffect(() => {
-      let stringified = selectedCategories.join(",");
-      let query = "?category=" + stringified;
+      let sewCategories: any = new Set(selectedCategories);
+      sewCategories = [...sewCategories];
+      let stringified = sewCategories.join(",");
+      let query = "?categories=" + stringified;
 
       if (stringified.length !== 0) {
          axios
+            .get(process.env.NEXT_PUBLIC_API + "/products" + query)
+            .then((res) => console.log(res?.data?.data));
+      } else if (router.query?.category) {
+         axios
             .get(
-               "https://sea-lion-app-p33f7.ondigitalocean.app/products" + query
+               process.env.NEXT_PUBLIC_API +
+                  "/products?cagegories=" +
+                  router.query?.category
             )
-            .then((res) => console.log({ res }));
+            .then((res) => {
+               console.log(res);
+
+               setProducts(res.data.data);
+            });
       }
    }, [selectedCategories]);
+
+   useEffect(() => {
+      axios
+         .get(process.env.NEXT_PUBLIC_API + "/products?name[$regex]=" + value)
+         .then((res) => setSearch(res.data.data))
+         .catch((err) => console.log(err));
+   }, [value]);
+   console.log(search);
 
    return (
       <>
@@ -88,10 +115,77 @@ const Catalog: React.FC<CatalogProps> = ({ products, categories }) => {
                      hide ? "max-lg:block" : "hidden"
                   }`}
                >
+                  {/* <div className="max-lg:max-w-[250px] flex flex-col gap-5">
+                     <div className="p-3 overflow-hidden rounded-lg shadow-md bg-white">
+                        <div className="flex items-center justify-between cursor-pointer">
+                           <p>{translation.catalog.allCategories}</p>
+                        </div>
+
+                        <div className="pl-5 mt-4">
+                           <ul>
+                              <li
+                                 onClick={() => {
+                                    if (selectedCategories.includes("All")) {
+                                       setSelectedCategories(
+                                          selectedCategories.filter(
+                                             (item: any) => item !== "All"
+                                          )
+                                       );
+                                    } else {
+                                       setSelectedCategories([
+                                          ...selectedCategories,
+                                          "All",
+                                       ]);
+                                    }
+                                 }}
+                              >
+                                 <label className="flex items-center gap-3 mb-2">
+                                    <input name="category" type="checkbox" />
+                                    <p>{translation.catalog.all}</p>
+                                 </label>
+                              </li>
+                              {categories.map((item: any) => {
+                                 return (
+                                    <li
+                                       key={item._id}
+                                       onClick={() => {
+                                          if (
+                                             selectedCategories.includes(
+                                                item._id
+                                             )
+                                          ) {
+                                             setSelectedCategories(
+                                                selectedCategories.filter(
+                                                   (el: any) => el !== item._id
+                                                )
+                                             );
+                                          } else {
+                                             setSelectedCategories([
+                                                ...selectedCategories,
+                                                item._id,
+                                             ]);
+                                          }
+                                       }}
+                                    >
+                                       <label className="flex items-center gap-3 mb-2">
+                                          <input
+                                             type="checkbox"
+                                             name="category"
+                                          />
+                                          <p>{item.name}</p>
+                                       </label>
+                                    </li>
+                                 );
+                              })}
+                           </ul>
+                        </div>
+                     </div>
+                  </div> */}
+
                   <Filter
                      categories={categories}
                      selectedCategories={selectedCategories}
-                     handleCategoryChange={setSelectedCategories}
+                     setSelectedCategories={setSelectedCategories}
                   />
                </div>
 
@@ -115,7 +209,7 @@ const Catalog: React.FC<CatalogProps> = ({ products, categories }) => {
                   <Filter
                      categories={categories}
                      selectedCategories={selectedCategories}
-                     handleCategoryChange={setSelectedCategories}
+                     setSelectedCategories={setSelectedCategories}
                   />
 
                   <button
@@ -128,9 +222,13 @@ const Catalog: React.FC<CatalogProps> = ({ products, categories }) => {
 
                <div className="w-full mb-28 max-xl:mb-24 max-md:mb-14">
                   <div className="grid grid-cols-3 max-xl:grid-cols-2 gap-8 max-xl:gap-3 max-md:gap-2 max-xs:gap-1">
-                     {products.data.map((item: any) => {
-                        return <ProductBlock key={item._id} item={item} />;
-                     })}
+                     {search[0]
+                        ? search.map((item: any) => {
+                             return <ProductBlock key={item._id} item={item} />;
+                          })
+                        : products_arr.map((item: any) => {
+                             return <ProductBlock key={item._id} item={item} />;
+                          })}
                   </div>
                </div>
             </div>

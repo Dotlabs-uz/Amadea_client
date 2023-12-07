@@ -88,6 +88,7 @@ const Header: React.FC<HeaderProps> = () => {
                <select
                   title="Change Language"
                   onChange={(e: any) => changeLang(e)}
+                  defaultValue={locale}
                >
                   <option value="ru">RU</option>
                   <option value="uz">UZ</option>

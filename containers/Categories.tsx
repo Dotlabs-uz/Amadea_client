@@ -60,7 +60,7 @@ const Categories: React.FC<CategoriesProps> = () => {
                >
                   {categories.map((item: any) => {
                      return (
-                        <SwiperSlide key={item}>
+                        <SwiperSlide key={item._id}>
                            <Link href={"/catalog?category=" + item._id}>
                               <div className="max-w-[200px] w-full h-[180px] max-xs:h-[150px]">
                                  <img
