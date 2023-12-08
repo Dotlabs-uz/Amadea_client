@@ -172,7 +172,8 @@ const ConactUs: React.FC<ConactUsProps> = () => {
                                     }
                                  >
                                     <p className="w-fit text-xl font-medium hover:underline underline-offset-2 cursor-pointer">
-                                       {item.address}
+                                       {item.address}{" "} 
+                                       <span className="text-sm" >(Показать на карте)</span>
                                     </p>
                                  </Link>
                               </div>
