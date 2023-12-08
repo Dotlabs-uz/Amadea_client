@@ -30,13 +30,13 @@ const Footer: React.FC<FooterProps> = () => {
                </ul>
             </nav>
             <ul className="max-w-xs w-full m-auto flex items-center justify-around gap-10 max-md:gap-5 max-xs:gap-0 mb-10">
-               <li>
+               {/* <li>
                   <Link href={"#"}>
                      <BsInstagram size={25} />
                   </Link>
-               </li>
+               </li> */}
                <li>
-                  <Link href={"#"}>
+                  <Link href="https://t.me/AmadeaUzbekistan">
                      <FaTelegramPlane size={25} />
                   </Link>
                </li>

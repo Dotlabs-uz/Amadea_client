@@ -26,21 +26,35 @@ const uz = {
    },
 
    // Catalog //
-
    catalog: {
       title: "Katalog",
 
       search: "Qidirmoq",
       allCategories: "Barcha kategoriyalar",
       all: "hammasi",
+      noTfound: "Mahsulot topilmadi",
    },
 
+   // product page //
+   product: {
+      button: "Qayerdan sotib olsam bo'ladi?",
+      similar: "O'xshash Mahsulotlar",
+   },
+
+   // conactUs //
    conactUs: {
       title: "Biz bilan bog'lanish",
 
       сontact: "Biz bilan bog'lanish",
       address: "Manzil",
       social: "Ijtimoiy tarmoq",
+      buy: "QAYERDAN SOTIB OLISH MUMKIN?",
+      manufacturer: "Ishlab chiqaruvchi",
+      phones: "Telefonlar",
+      gmail: "E-mail",
+      website: "Veb-sayt",
+      distributors: "Amadea distribyutorlari",
+      show: "Xaritada ko'rsatish",
    },
 };
 

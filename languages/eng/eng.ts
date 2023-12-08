@@ -26,23 +26,35 @@ const eng = {
    },
 
    // Catalog //
-
    catalog: {
       title: "Catalog",
 
       search: "Search",
       allCategories: "All Categories",
       all: "All",
+      noTfound: "Product not found",
+   },
+
+   // product page //
+   product: {
+      button: "Where can I buy?",
+      similar: "Similar Products",
    },
 
    // conactUs //
-
    conactUs: {
       title: "Conact Us",
 
       сontact: "Connect with us",
       address: "Address",
       social: "Social network",
+      buy: "WHERE CAN I BUY?",
+      manufacturer: "Manufacturer",
+      phones: "Phones",
+      gmail: "E-mail",
+      website: "Web-site",
+      distributors: "Amadea Distributors",
+      show: "Show on the map",
    },
 };
 
