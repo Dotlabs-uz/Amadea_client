@@ -15,7 +15,6 @@ const Accordion: React.FC<AccordionProps> = ({
 }) => {
    const translation: any = useContext(Context);
 
-
    return (
       <div className="p-3 overflow-hidden rounded-lg shadow-md bg-white">
          <div className="flex items-center justify-between cursor-pointer">

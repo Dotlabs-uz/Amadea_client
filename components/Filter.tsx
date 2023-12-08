@@ -23,12 +23,12 @@ const Filter: React.FC<FilterProps> = ({
 
             <div className="pl-5 mt-4">
                <ul>
-                  {/* <li>
+                  <li>
                      <label className="flex items-center gap-3 mb-2">
                         <input name="category" type="checkbox" />
                         <p>{translation.catalog.all}</p>
                      </label>
-                  </li> */}
+                  </li>
                   {categories.data.map((item: any) => (
                      <Category
                         key={item._id}
