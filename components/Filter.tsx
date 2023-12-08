@@ -4,13 +4,14 @@ import Category from "./children/Category";
 
 interface FilterProps {
    categories: any;
-   setSelectedCategories: any;
-   selectedCategories: any;
+   selectedcategory: any;
+   setSelectedCategory: any;
 }
+
 const Filter: React.FC<FilterProps> = ({
    categories,
-   setSelectedCategories,
-   selectedCategories,
+   selectedcategory,
+   setSelectedCategory,
 }) => {
    const translation: any = useContext(Context);
 
@@ -23,9 +24,9 @@ const Filter: React.FC<FilterProps> = ({
 
             <div className="pl-5 mt-4">
                <ul>
-                  <li>
+                  <li onClick={() => setSelectedCategory("all")}>
                      <label className="flex items-center gap-3 mb-2">
-                        <input name="category" type="checkbox" />
+                        <input name="category" type="radio" />
                         <p>{translation.catalog.all}</p>
                      </label>
                   </li>
@@ -33,8 +34,8 @@ const Filter: React.FC<FilterProps> = ({
                      <Category
                         key={item._id}
                         item={item}
-                        selectedCategories={selectedCategories}
-                        setSelectedCategories={setSelectedCategories}
+                        selectedcategory={selectedcategory}
+                        setSelectedCategory={setSelectedCategory}
                      />
                   ))}
                </ul>

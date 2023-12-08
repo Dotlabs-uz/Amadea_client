@@ -1,13 +1,15 @@
 /* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 interface InfoItemProps {
    product: any;
+   translation: any;
 }
 
-const InfoItem: React.FC<InfoItemProps> = ({ product }) => {
+const InfoItem: React.FC<InfoItemProps> = ({ product, translation }) => {
    const router = useRouter();
    const { locale } = router;
    const [title, setTitle] = useState("");
@@ -72,9 +74,12 @@ const InfoItem: React.FC<InfoItemProps> = ({ product }) => {
                {product.description}
             </p>
 
-            <button className="bg-[#50806B] hover:bg-[#68a98d] text-white text-lg py-3 px-8 duration-75 ease-in">
-               Where can I buy ?
-            </button>
+            <Link
+               href={"/contactUs"}
+               className="bg-[#50806B] hover:bg-[#68a98d] text-white text-lg py-3 px-8 duration-75 ease-in"
+            >
+               {translation.product.button}
+            </Link>
          </div>
       </section>
    );

@@ -26,21 +26,35 @@ const ru = {
    },
 
    // Catalog //
-
    catalog: {
       title: "Каталог",
 
       search: "Поиск",
       allCategories: "Все категории",
       all: "все",
+      noTfound: "Продукт не найден",
    },
 
+   // product page //
+   product: {
+      button: "Где купить?",
+      similar: "Похожие Продукты",
+   },
+
+   // conactUs //
    conactUs: {
       title: "Связаться с нами",
 
       сontact: "Связаться с нами",
       address: "Адрес",
       social: "Соц.сети",
+      buy: "ГДЕ КУПИТЬ?",
+      manufacturer: "Производитель",
+      phones: "Телефоны",
+      gmail: "Электронная почта",
+      website: "Веб-сайт",
+      distributors: "Дистрибьюторы Amadea",
+      show: "Показать на карте",
    },
 };
 

@@ -1,14 +1,17 @@
 /* eslint-disable @next/next/no-img-element */
+import { useEffect, useState, useContext } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+
+import Context from "@/context/useTranslate";
 
 interface ProductBlockProps {
    item: any;
 }
 
 const ProductBlock: React.FC<ProductBlockProps> = ({ item }) => {
+   const translation: any = useContext(Context);
    const router = useRouter();
    const { locale } = router;
    const [title, setTitle] = useState("");
@@ -44,7 +47,7 @@ const ProductBlock: React.FC<ProductBlockProps> = ({ item }) => {
                href={`/catalog/product/${item._id}`}
                className="w-full block mt-4 py-3 max-md:py-2 text-[20px] max-md:text-[16px] max-xs:text-sm font-bold text-center rounded-lg duration-150 ease-in bg-[#50806B] hover:bg-[#568b75] text-white"
             >
-               Learn More
+               {translation.product.button}
             </Link>
          </div>
       </div>

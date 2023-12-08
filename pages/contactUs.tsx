@@ -94,7 +94,7 @@ const arr = [
       ],
    },
    {
-      id: 5,
+      id: 6,
       address: "Каракалпакстан филиал",
       street: "61-й квартал, 11 Нукус, Республика Каракалпакстан",
       coordinates:
@@ -118,66 +118,79 @@ const ConactUs: React.FC<ConactUsProps> = () => {
    return (
       <>
          <TitlePage>{translation.conactUs.title}</TitlePage>
-         <div className="custom-container">
+         <div className="custom-container pt-5">
             <div className="">
                <div className="mb-5">
-                  <h2 className="text-3xl font-semibold underline underline-offset-8">
-                     ГДЕ КУПИТЬ?
+                  <h2 className="text-3xl max-md:text-2xl font-semibold underline underline-offset-8">
+                     {translation.conactUs.buy}
                   </h2>
                </div>
-               <div className="flex justify-between text-lg">
-                  <ul className="w-1/2">
+               <div className="flex max-sm:flex-col justify-between text-lg">
+                  <ul className="w-1/2 max-sm:w-full">
                      <li className="flex items-center gap-3 mb-1">
-                        <p className="font-medium">Производитель:</p>
-                        <p className="">ООО &laquo;Amadea&raquo;</p>
+                        <p className="font-medium max-xl:text-lg max-lg:text-base">
+                           {translation.conactUs.manufacturer}:
+                        </p>
+                        <p className="max-xl:text-lg max-lg:text-base">
+                           ООО &laquo;Amadea&raquo;
+                        </p>
                      </li>
                      <li className="flex items-center gap-3">
-                        <p className="font-medium">Телефоны:</p>
-                        <p className="hover:underline underline-offset-2 cursor-pointer">
+                        <p className="font-medium max-xl:text-lg max-lg:text-base">
+                           {translation.conactUs.phones}:
+                        </p>
+                        <p className="hover:underline underline-offset-2 cursor-pointer max-xl:text-lg max-lg:text-base">
                            +998 95 500 15 22
                         </p>
                      </li>
                   </ul>
-                  <ul className="w-1/2">
+                  <ul className="w-1/2 max-sm:w-full">
                      <li className="flex items-center gap-3 mb-1">
-                        <p className="font-medium">E-mail:</p>
-                        <p className="hover:underline underline-offset-2 cursor-pointer">
+                        <p className="font-medium max-xl:text-lg max-lg:text-base">
+                           {translation.conactUs.gmail}:
+                        </p>
+
+                        <p className="hover:underline underline-offset-2 cursor-pointer max-xl:text-lg max-lg:text-base">
                            you@gmail.com
                         </p>
                      </li>
                      <li className="flex items-center gap-3">
-                        <p className="font-medium">Web-site:</p>
-                        <p className="hover:underline underline-offset-2 cursor-pointer">
+                        <p className="font-medium max-xl:text-lg max-lg:text-base">
+                           {translation.conactUs.website}:
+                        </p>
+                        <p className="hover:underline underline-offset-2 cursor-pointer max-xl:text-lg max-lg:text-base">
                            www.amadea.uz
                         </p>
                      </li>
                   </ul>
                </div>
 
-               <div className="mt-10">
+               <div className="mt-10 max-md:mt-5">
                   <div className="">
                      <h2 className="text-2xl font-bold">
-                        Дистрибьюторы Amadea
+                        {translation.conactUs.distributors}
                      </h2>
                   </div>
-                  <div className="grid grid-cols-2 gap-10 mt-5">
+                  <div className="grid grid-cols-2 max-sm:grid-cols-1 gap-10 max-lg:gap-5 mt-5">
                      {arr.map((item: any) => {
                         return (
                            <div key={item.id} className="">
-                              <div className=" py-5 border-b-2 border-[#50806B]">
+                              <div className="py-5 max-md:py-2 border-b-2 border-[#50806B]">
                                  <Link
                                     href={"#map"}
                                     onClick={() =>
                                        setLocation(item.coordinates)
                                     }
                                  >
-                                    <p className="w-fit text-xl font-medium hover:underline underline-offset-2 cursor-pointer">
-                                       {item.address}{" "} 
-                                       <span className="text-sm" >(Показать на карте)</span>
+                                    <p className="w-fit text-xl max-xl:text-lg max-lg:text-base font-medium hover:underline underline-offset-2 cursor-pointer">
+                                       {item.address}
+                                       <span className="text-sm ml-1">
+                                          ({translation.conactUs.show})
+                                       </span>
                                     </p>
                                  </Link>
                               </div>
-                              <ul className="flex flex-col mt-3 pl-5">
+                              <ul className="flex flex-col mt-3 max-xs:mt-2 pl-5">
                                  <li>{item.street}</li>
                                  {item.numbers.map(
                                     (number: {
