@@ -47,7 +47,7 @@ const ProductBlock: React.FC<ProductBlockProps> = ({ item }) => {
                href={`/catalog/product/${item._id}`}
                className="w-full block mt-4 py-3 max-md:py-2 text-[20px] max-md:text-[16px] max-xs:text-sm font-bold text-center rounded-lg duration-150 ease-in bg-[#50806B] hover:bg-[#568b75] text-white"
             >
-               {translation.product.button}
+               {translation.item.more}
             </Link>
          </div>
       </div>

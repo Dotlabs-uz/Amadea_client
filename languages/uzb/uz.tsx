@@ -56,6 +56,10 @@ const uz = {
       distributors: "Amadea distribyutorlari",
       show: "Xaritada ko'rsatish",
    },
+
+   item: {
+      more: "batafsil",
+   },
 };
 
 export default uz;
