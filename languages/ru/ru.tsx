@@ -56,6 +56,10 @@ const ru = {
       distributors: "Дистрибьюторы Amadea",
       show: "Показать на карте",
    },
+
+   item: {
+      more: "подробнее",
+   },
 };
 
 export default ru;

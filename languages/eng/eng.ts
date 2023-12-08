@@ -56,6 +56,10 @@ const eng = {
       distributors: "Amadea Distributors",
       show: "Show on the map",
    },
+
+      item: {
+         more: "more",
+      },
 };
 
 export default eng;
