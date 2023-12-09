@@ -10,6 +10,7 @@ import ProductBlock from "@/components/children/ProductBlock";
 import { IoMdClose } from "react-icons/io";
 import { TbFilterSearch } from "react-icons/tb";
 import { useRouter } from "next/router";
+import Pagination from "@/components/Pagination";
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
    try {
@@ -45,10 +46,34 @@ const Catalog: React.FC<CatalogProps> = ({ products, categories }) => {
    const translation: any = useContext(Context);
    const [hide, setHide] = useState(false);
    const [value, setValue] = useState("");
-   const [search, setSearch] = useState<any>([]);
    const [selectedcategory, setSelectedCategory] = useState("all");
    const [products_arr, setProducts] = useState(products.data);
+   const [currentPage, setCurrentPage] = useState(1);
+   const [loading, setLoading] = useState(true);
    const router = useRouter();
+
+   console.log(loading);
+
+   const handlePageChange = (pageNumber: number) => {
+      setCurrentPage(pageNumber);
+   };
+
+   useEffect(() => {
+      try {
+         axios
+            .get(process.env.NEXT_PUBLIC_API + `/products?page=${currentPage}`)
+            .then((res) => {
+               if (res.status === 200 || res.status === 201) {
+                  setLoading(false);
+                  setProducts(res.data.data);
+               }
+            })
+            .catch((err) => console.log(err));
+         setLoading(true);
+      } catch (error) {
+         console.error(error);
+      }
+   }, [currentPage]);
 
    useEffect(() => {
       let query = "?categories=" + selectedcategory;
@@ -90,7 +115,7 @@ const Catalog: React.FC<CatalogProps> = ({ products, categories }) => {
 
    return (
       <>
-         <section>
+         <section id="start">
             <div className="mb-32 max-xl:mb-24 max-lg:mb-14 max-sm:mb-7">
                <TitlePage>{translation.catalog.title}</TitlePage>
             </div>
@@ -151,11 +176,15 @@ const Catalog: React.FC<CatalogProps> = ({ products, categories }) => {
                </aside>
 
                <div className="w-full mb-28 max-xl:mb-24 max-md:mb-14">
-                  <div className="grid grid-cols-3 max-xl:grid-cols-2 gap-8 max-xl:gap-3 max-md:gap-2 max-xs:gap-1 relative min-h-[200px]">
-                     {products_arr[0] ? (
-                        products_arr.map((item: any) => {
-                           return <ProductBlock key={item._id} item={item} />;
-                        })
+                  {!loading ? (
+                     products_arr[0] ? (
+                        <div className="grid grid-cols-3 max-xl:grid-cols-2 gap-8 max-xl:gap-3 max-md:gap-2 max-xs:gap-1 relative min-h-[200px]">
+                           {products_arr.map((item: any) => {
+                              return (
+                                 <ProductBlock key={item._id} item={item} />
+                              );
+                           })}
+                        </div>
                      ) : (
                         <div className="w-full absolute flex flex-col items-center py-5">
                            <div className="w-40 max-lg:w-28">
@@ -306,13 +335,23 @@ const Catalog: React.FC<CatalogProps> = ({ products, categories }) => {
                               </svg>
                            </div>
                            <div className="mt-5">
-                              <p className="text-xl max-md:text-lg">
+                              <p className="text-3xl max-md:text-lg">
                                  {translation.catalog.noTfound}
                               </p>
                            </div>
                         </div>
-                     )}
-                  </div>
+                     )
+                  ) : (
+                     <div className="w-full py-20">
+                        <div className="w-16 h-16 m-auto rounded-full border-t-2 border-b-2 border-gray-500 animate-spin"></div>
+                     </div>
+                  )}
+
+                  <Pagination
+                     currentPage={currentPage}
+                     totalPages={products.pageCount}
+                     onPageChange={handlePageChange}
+                  />
                </div>
             </div>
          </div>
