@@ -82,7 +82,7 @@ const arr = [
     },
     {
         id: 5,
-        address: "Сурхандаринский ффилиал",
+        address: "Сурхандаринский филиал",
         street: "4Р100 Сурхандарьинская область",
         coordinates:
             "67.284296%2C37.267485&mode=whatshere&whatshere%5Bpoint%5D=67.283526%2C37.268094&whatshere%5Bzoom%5D=16.84852&z=16",
