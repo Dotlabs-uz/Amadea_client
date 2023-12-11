@@ -24,8 +24,8 @@ const ProductBlock: React.FC<ProductBlockProps> = ({ item }) => {
    }, [locale]);
 
    return (
-      <div className="max-xs:max-w-xs w-full h-full m-auto flex flex-col items-center p-5 max-md:p-3 max-xs:p-2 rounded-2xl shadow-[0_8px_23px_#506b5221]">
-         <div className="max-w-[200px] w-full h-[200px] max-xs:h-[150px] overflow-hidden mb-6 max-md:mb-2">
+      <div className="max-xs:max-w-xs w-full h-full m-auto flex flex-col items-center rounded-2xl shadow-[0_8px_23px_#506b5221] overflow-hidden">
+         <div className="w-full h-[200px] max-xs:h-[150px] overflow-hidden mb-6 max-md:mb-2">
             <img
                src={item.image}
                alt="product"
@@ -39,7 +39,7 @@ const ProductBlock: React.FC<ProductBlockProps> = ({ item }) => {
                alt="photo"
             /> */}
          </div>
-         <div className="w-full mt-auto">
+         <div className="w-full mt-auto p-5 max-md:p-3 max-xs:p-2">
             <p>{title}</p>
             <p>$ {item.price}</p>
 
