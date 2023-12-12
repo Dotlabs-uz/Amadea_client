@@ -17,7 +17,10 @@ const Header: React.FC<HeaderProps> = () => {
    const [localeValue, setLocaleValue] = useState<any>(locale);
 
    const changeLang = (e: any) => {
-      const locale = e.target.value;
+      const locale = e.target.value
+
+      console.log(locale);
+      
 
       router.push(
          { pathname: router.pathname, query: router.query },
