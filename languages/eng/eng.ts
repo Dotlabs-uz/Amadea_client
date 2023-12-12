@@ -22,7 +22,7 @@ const eng = {
       text4: "Our priority is trust, partnerships, ensuring proper storage and timely delivery of goods, we have the resource and a great desire to comply with this. Main activities: Chemical and biological reagents: Reagents for ELISA: Reagents for PCR studies: Diagnostic rapid tests Consumables Laboratory plastic Vacuum tubes and accessories. We sell products from such manufacturers as Sigma-Aldrich, Merck Millipore, Labbox, Jiangsu Huida Medical, MP Biomedicals, Eiliton, Guangzhou Improve Medical Instruments and others.",
    },
    employees: {
-      title: "Our Employees",
+      title: "Our partners",
    },
 
    // Catalog //
