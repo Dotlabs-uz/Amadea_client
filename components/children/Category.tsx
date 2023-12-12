@@ -16,7 +16,7 @@ const Category: React.FC<CategoryProps> = ({
    return (
       <li onClick={() => setSelectedCategory(item._id)}>
          <label className="flex items-center gap-3 mb-2">
-            <input type="radio" name="category" />
+            <input type="radio" name="category" defaultChecked={selectedcategory.includes(item._id)} />
             <p>{item.name}</p>
          </label>
       </li>

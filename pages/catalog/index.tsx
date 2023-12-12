@@ -51,26 +51,6 @@ const Catalog: React.FC<CatalogProps> = ({ categories }) => {
 		setCurrentPage(pageNumber);
 	};
 
-	// useEffect(() => {
-	// 	try {
-	// 		axios
-	// 			.get(
-	// 				process.env.NEXT_PUBLIC_API +
-	// 					`/products?page=${currentPage}`
-	// 			)
-	// 			.then((res) => {
-	// 				if (res.status === 200 || res.status === 201) {
-	// 					setLoading(false);
-	// 					setProducts(res.data.data);
-	// 				}
-	// 			})
-	// 			.catch((err) => console.log(err));
-	// 		setLoading(true);
-	// 	} catch (error) {
-	// 		console.error(error);
-	// 	}
-	// }, [currentPage]);
-
 	useEffect(() => {
 		let query = `?page=${currentPage}&categories=${selectedcategory}`;
 
@@ -97,8 +77,6 @@ const Catalog: React.FC<CatalogProps> = ({ categories }) => {
 	function searchProducts(value:string) {
 		try {
 			let val = value.length > 0 ? `?name=${value}` : "";
-			console.log("zapros search");
-			
 			axios
 				.get(process.env.NEXT_PUBLIC_API + "/products" + val)
 				.then((res) => {

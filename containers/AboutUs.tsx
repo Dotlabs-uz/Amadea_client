@@ -10,11 +10,13 @@ const AboutUs: React.FC<AboutUsProps> = () => {
    const arr = [
       {
          id: 0,
+         img: "/images/microbiologist.jpg",
          text1: translation.aboutUs.text1,
          text2: translation.aboutUs.text2,
       },
       {
          id: 1,
+         img: "/images/secondPic.jpg",
          text1: translation.aboutUs.text3,
          text2: translation.aboutUs.text4,
       },
@@ -45,9 +47,10 @@ const AboutUs: React.FC<AboutUsProps> = () => {
                         </div>
                         <div className="w-1/2 max-md:w-3/5 max-xs:w-full max-lg:mt-5">
                            <Image
-                              src={"/images/aboutUs.jpg"}
+                              src={item.img}
                               width={1000}
                               height={1000}
+                              className="max-h-[400px] object-cover"
                               alt="about Us"
                            />
                         </div>
