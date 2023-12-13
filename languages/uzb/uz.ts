@@ -21,6 +21,9 @@ const uz = {
       text3: "Biz eng zo'rlarga emas, balki Kompaniyaga kerak bo'lgan o'z sohasidagi mutaxassislarga e'tibor qaratamiz. Biz har bir mijoz noyob ekanligiga ishonamiz va har bir mijozga yondashuvni topishga intilamiz.",
       text4: "Bizning ustuvor vazifamiz - ishonch, hamkorlik, tovarlarni to'g'ri saqlash va o'z vaqtida yetkazib berishni ta'minlash, bizda bunga rioya qilish uchun resurs va katta istak bor. Asosiy faoliyati: Kimyoviy va biologik reagentlar: Elishay uchun reagentlar: PCR tadqiqotlari uchun reagentlar: Diagnostik tezkor testlar Sarf materiallari Laboratoriya plastmassasi Vakuum naychalari va aksessuarlar. Biz Sigma-Aldrich, Merck Millipore, Labbox, Jiangsu Huida Medical, MP Biomedicals, Eiliton, Guangzhou Improve Medical Instruments va boshqalar kabi ishlab chiqaruvchilarning mahsulotlarini sotamiz.",
    },
+   reviews: {
+      title: "Sharhlar",
+   },
    employees: {
       title: "Bizning hamkorlarimiz",
    },
