@@ -1,42 +1,54 @@
+import { useContext } from "react";
+import { useRouter } from "next/router";
+import Context from "@/context/useTranslate";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import Image from "next/image";
 
 interface ReviewsProps {}
 
 const reviews = [
    {
       id: 1,
-      comment: "Спасибо за быструю доставку, приятно с вами работать.",
-      rate: "*****"
+      commentru: "Спасибо за быструю доставку, приятно с вами работать.",
+      commenten:
+         "Thank you for the fast delivery, it's a pleasure working with you.",
+      commentuz:
+         "Tez yetkazib berganingiz uchun rahmat, siz bilan ishlashdan mamnunman.",
+      rate: "*****",
    },
    {
       id: 2,
-      comment: '"AMADEA" хороший сервис, низкие цены.',
-      rate: "*****"
+      commentru: '"AMADEA" хороший сервис, низкие цены.',
+      commenten: '"AMADEA" good service, low prices.',
+      commentuz: '"AMADEA" yaxshi xizmat, arzon narxlar.',
+      rate: "*****",
    },
    {
       id: 3,
-      comment: "Очень хороший ассортимент и обслуживание, спасибо девочкам.",
-      rate: "*****"
+      commentru: "Очень хороший ассортимент и обслуживание, спасибо девочкам.",
+      commenten: "Very good selection and service, thanks to the girls.",
+      commentuz: "Juda yaxshi tanlov va xizmat, qizlarga rahmat.",
+      rate: "*****",
    },
-]
+];
 
 const Reviews: React.FC<ReviewsProps> = () => {
+   const translation: any = useContext(Context);
+   const router = useRouter();
+   const { locale } = router;
+
    return (
       <section className="mb-28 max-xl:mb-24 max-md:mb-14 bg-[#E8EDDE]">
          <div className="custom-container py-20">
             <div className="mb-10 font-medium">
                <h2 className="text-[56px] max-md:text-[40px] text-center">
-                  Отзывы
+                  {translation.reviews.title}
                </h2>
             </div>
             <div className="">
                <Swiper
                   spaceBetween={30}
                   slidesPerView={3}
-                  centeredSlides
-                  // loop
                   breakpoints={{
                      0: {
                         slidesPerView: 1.2,
@@ -57,39 +69,36 @@ const Reviews: React.FC<ReviewsProps> = () => {
                      },
                   }}
                >
-                  {reviews.map((item: any) => {
-                     return (
-                        <SwiperSlide key={item.id}>
-                           <div className="flex flex-col items-center justify-center py-8 max-lg:py-6 max-md:py-4 px-16 max-lg:px-10 max-md:px-5 bg-white">
-                              <div className="">
-                                 <div className="w-40 rounded-full overflow-hidden">
-                                    {/* <Image
-                                       src={"/images/woman.jpg"}
-                                       width={1000}
-                                       height={1000}
-                                       alt="people"
-                                    /> */}
-                                 </div>
+                  {reviews.map(
+                     (item: {
+                        id: number;
+                        rate: string;
+                        commentru: string;
+                        commenten: string;
+                        commentuz: string;
+                     }) => {
+                        return (
+                           <SwiperSlide key={item.id}>
+                              <div className="h-full flex flex-col items-center py-8 max-lg:py-6 max-md:py-4 px-10 max-lg:px-8 max-md:px-3 bg-white">
                                  <div className="">
                                     <p className="text-[39px] text-center text-[#56B280]">
                                        {item.rate}
                                     </p>
                                  </div>
+                                 <div className="">
+                                    <p className="text-[18px] max-md:text-base font-medium text-center text-[#1D293F]">
+                                       {locale === "ru"
+                                          ? item.commentru
+                                          : locale === "en"
+                                          ? item.commenten
+                                          : item.commentuz}
+                                    </p>
+                                 </div>
                               </div>
-                              <div className="">
-                                 <p className="text-[18px] font-medium text-center text-[#1D293F]">
-                                    {item.comment}
-                                 </p>
-                              </div>
-                              {/* <div className="">
-                                 <p className="text-[18px] text-[#7C8087]">
-                                    Luisa
-                                 </p>
-                              </div> */}
-                           </div>
-                        </SwiperSlide>
-                     );
-                  })}
+                           </SwiperSlide>
+                        );
+                     }
+                  )}
                </Swiper>
             </div>
          </div>
