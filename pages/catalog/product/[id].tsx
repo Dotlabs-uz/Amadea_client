@@ -8,10 +8,9 @@ import "swiper/css";
 
 import Context from "@/context/useTranslate";
 
-import ProductBlock from "@/components/children/ProductBlock";
+import ProductBlock from "@/components/ProductBlock";
 import TitleCon from "@/components/children/TitleCon";
 import InfoItem from "@/containers/InfoItem";
-import TitlePage from "@/components/children/TitlePage";
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
    const { id } = query;
@@ -35,15 +34,29 @@ interface ProductProps {
 }
 const Product: React.FC<ProductProps> = ({ product, products }) => {
    const translation: any = useContext(Context);
-   console.log(products.data);
-   console.log(product);
-
    return (
       <>
-         <TitlePage>{product.name}</TitlePage>
-
+         <div className="w-full py-2 text-white bg-[#50806B]">
+            <div className="custom-container flex gap-3">
+               <Link href={"/"}>
+                  <p className="cursor-pointer hover:underline underline-offset-2">
+                     Home
+                  </p>
+               </Link>
+               &gt;
+               <Link href={"/catalog"}>
+                  <p className="cursor-pointer hover:underline underline-offset-2">
+                     Catalog
+                  </p>
+               </Link>
+               &gt;
+               <p className="cursor-pointer hover:underline underline-offset-2">
+                  Product
+               </p>
+            </div>
+         </div>
          <InfoItem translation={translation} product={product} />
-         <section className="custom-container pb-28 max-xl:pb-24 max-md:pb-14">
+         <section className="custom-container pt-28 max-xl:pb-24 max-md:pb-14">
             <TitleCon>{translation.product.similar}</TitleCon>
             <Swiper
                style={{ padding: "0 10px 20px" }}
