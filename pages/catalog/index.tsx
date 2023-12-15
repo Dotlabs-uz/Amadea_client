@@ -5,12 +5,13 @@ import axios from "axios";
 
 import TitlePage from "@/components/children/TitlePage";
 import Filter from "@/components/Filter";
-import ProductBlock from "@/components/children/ProductBlock";
+import ProductBlock from "@/components/ProductBlock";
 
 import { IoMdClose } from "react-icons/io";
 import { TbFilterSearch } from "react-icons/tb";
 import { useRouter } from "next/router";
 import Pagination from "@/components/Pagination";
+import Link from "next/link";
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
    try {
@@ -94,6 +95,21 @@ const Catalog: React.FC<CatalogProps> = ({ categories }) => {
 
    return (
       <>
+         <div className="w-full py-2 text-white bg-[#50806B]">
+            <div className="custom-container flex gap-3">
+               <Link href={"/"}>
+                  <p className="cursor-pointer hover:underline underline-offset-2">
+                     Home
+                  </p>
+               </Link>
+               &gt;
+               <Link href={"/catalog"}>
+                  <p className="cursor-pointer hover:underline underline-offset-2">
+                     Catalog
+                  </p>
+               </Link>
+            </div>
+         </div>
          <section id="start">
             <div className="mb-32 max-xl:mb-24 max-lg:mb-14 max-sm:mb-7">
                <TitlePage>{translation.catalog.title}</TitlePage>
