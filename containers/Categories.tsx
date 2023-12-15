@@ -30,6 +30,8 @@ const Categories: React.FC<CategoriesProps> = () => {
       }
    }, []);
 
+   console.log(categories);
+
    return (
       <section id="categories" className="mb-28 max-xl:mb-24 max-md:mb-14">
          <div className="custom-container">

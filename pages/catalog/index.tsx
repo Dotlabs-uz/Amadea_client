@@ -56,7 +56,6 @@ const Catalog: React.FC<CatalogProps> = ({ categories }) => {
       let query = `?page=${currentPage}&categories=${selectedcategory}`;
 
       if (selectedcategory === "all") {
-         console.log("zapros all");
          axios
             .get(process.env.NEXT_PUBLIC_API + `/products?page=${currentPage}`)
             .then((res) => {

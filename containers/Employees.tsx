@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import Context from "@/context/useTranslate";
 import TitleCon from "@/components/children/TitleCon";
 import Image from "next/image";
@@ -50,7 +50,7 @@ const Employees: React.FC<EmployeesProps> = () => {
             <TitleCon>{translation.employees.title}</TitleCon>
          </div>
          <Marquee direction={"right"} speed={15}>
-            <div className="w-full flex items-center justify-between mb-5 max-sm:mb-3">
+            <div className="w-full flex items-center justify-between mb-5 max-sm:mb-0">
                {arr.map((item: any) => {
                   return (
                      <div
