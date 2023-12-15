@@ -17,11 +17,7 @@ const Header: React.FC<HeaderProps> = () => {
    const [localeValue, setLocaleValue] = useState<any>(locale);
 
    const changeLang = (e: any) => {
-      const locale = e.target.value
-
-      console.log(locale);
-      
-
+      const locale = e.target.value;
       router.push(
          { pathname: router.pathname, query: router.query },
          router.asPath,
@@ -43,7 +39,7 @@ const Header: React.FC<HeaderProps> = () => {
                   />
                </Link>
             </div>
-            <div className=" flex justify-between">
+            <div className="flex justify-between">
                <nav
                   className={`${
                      hide
@@ -87,7 +83,7 @@ const Header: React.FC<HeaderProps> = () => {
                   </ul>
                </nav>
             </div>
-            <div className="max-md:hidden">
+            <div className="">
                <select
                   title="Change Language"
                   onChange={(e: any) => changeLang(e)}

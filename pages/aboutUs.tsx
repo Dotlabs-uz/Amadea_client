@@ -20,6 +20,7 @@ const AboutUs: React.FC<AboutUsProps> = () => {
          text2: translation.aboutUs.text4,
       },
    ];
+
    return (
       <>
          <TitlePage>About Us</TitlePage>
