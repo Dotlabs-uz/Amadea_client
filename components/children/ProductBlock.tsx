@@ -51,7 +51,7 @@ const ProductBlock: React.FC<ProductBlockProps> = ({ item }) => {
 				</div>
 				<div className="w-full mt-auto p-5 max-md:p-3 max-xs:p-2">
 					<p>{title}</p>
-					<p>$ {item.price}</p>
+					{/* <p>$ {item.price}</p> */}
 
 					<Link
 						href={`/catalog/product/${item._id}`}
