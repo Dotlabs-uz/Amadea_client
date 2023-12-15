@@ -6,7 +6,7 @@ const uz = {
       nav4: "Kontaktlar",
    },
    hero: {
-      title: "Моҳият химияси: лабораториядан реагентлар",
+      title: "Sifat kimyosi: laboratoriyadan olingan reagentlar",
       subtitle:
          "Otkroyte mir ximii s nami: shirokiy vybor vysokokachestvennyx reagentov uchun nauki va promyshlennosti.",
       button: "boshlash",
