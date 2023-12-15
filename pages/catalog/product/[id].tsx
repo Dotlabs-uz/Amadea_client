@@ -56,7 +56,7 @@ const Product: React.FC<ProductProps> = ({ product, products }) => {
             </div>
          </div>
          <InfoItem translation={translation} product={product} />
-         <section className="custom-container pt-28 max-xl:pb-24 max-md:pb-14">
+         <section className="custom-container pb-28 max-xl:pb-24 max-md:pb-14">
             <TitleCon>{translation.product.similar}</TitleCon>
             <Swiper
                style={{ padding: "0 10px 20px" }}
@@ -64,7 +64,7 @@ const Product: React.FC<ProductProps> = ({ product, products }) => {
                slidesPerView={4}
                breakpoints={{
                   0: {
-                     slidesPerView: 1,
+                     slidesPerView: 2,
                      spaceBetween: 10,
                   },
                   441: {

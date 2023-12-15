@@ -46,11 +46,21 @@ const InfoItem: React.FC<InfoItemProps> = ({ product, translation }) => {
                   {title}
                </p>
                <div className="max-w-full max-md:flex hidden justify-center px-10 mb-4">
-                  <img
-                     className="max-w-[250px] min-h-[320px] object-cover"
-                     src={product.image}
-                     alt="product"
-                  />
+                  <Fancybox
+                     options={{
+                        Carousel: {
+                           infinite: false,
+                        },
+                     }}
+                  >
+                     <a data-fancybox="gallery" href={product.image}>
+                        <img
+                           className="object-cover"
+                           src={product.image}
+                           alt="product"
+                        />
+                     </a>
+                  </Fancybox>
                </div>
                <ul className="mb-6">
                   <li className="py-1 px-2 flex items-center justify-between max-md:text-base max-sm:text-sm bg-gray-200">
