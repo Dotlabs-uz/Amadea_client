@@ -13,8 +13,6 @@ const ProductBlock: React.FC<ProductBlockProps> = ({ item }) => {
    const router = useRouter();
    const { locale } = router;
    const [title, setTitle] = useState("");
-   const [showDialog, setShowDialog] = useState<boolean>(false);
-   const [dialogImage, setDialogImage] = useState<string>("");
 
    useEffect(() => {
       const text =
@@ -38,8 +36,7 @@ const ProductBlock: React.FC<ProductBlockProps> = ({ item }) => {
                </Fancybox>
             </div>
             <div className="w-full mt-auto p-5 max-md:p-3 max-xs:p-2">
-               <p>{title}</p>
-               {/* <p>$ {item.price}</p> */}
+               <p className="max-sm:text-sm">{title}</p>
 
                <Link
                   href={`/catalog/product/${item._id}`}
@@ -50,21 +47,6 @@ const ProductBlock: React.FC<ProductBlockProps> = ({ item }) => {
             </div>
          </div>
       </>
-   );
-};
-
-const Dialog = ({ image, setOpen }: any) => {
-   return (
-      <div
-         onClick={() => {
-            setOpen(false);
-         }}
-         className="fixed top-0 left-0 bg-[rgba(0,0,0,.5)] w-full h-screen z-[1000] flex justify-center items-center"
-      >
-         <div className="w-[100%] max-h-[500px] h-[500px]">
-            <img src={image} alt="" className="w-full h-full  object-contain" />
-         </div>
-      </div>
    );
 };
 
