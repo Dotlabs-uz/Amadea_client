@@ -1,6 +1,5 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import Context from "@/context/useTranslate";
-import Category from "./children/Category";
 
 interface FilterProps {
    categories: any;
@@ -26,18 +25,33 @@ const Filter: React.FC<FilterProps> = ({
                <ul>
                   <li onClick={() => setSelectedCategory("all")}>
                      <label className="flex items-center gap-3 mb-2">
-                        <input name="category" type="radio" />
+                        <input
+                           defaultChecked={selectedcategory.includes("all")}
+                           name="category"
+                           type="radio"
+                        />
                         <p>{translation.catalog.all}</p>
                      </label>
                   </li>
-                  {categories.data.map((item: any) => (
-                     <Category
-                        key={item._id}
-                        item={item}
-                        selectedcategory={selectedcategory}
-                        setSelectedCategory={setSelectedCategory}
-                     />
-                  ))}
+                  {categories.data.map((item: any) => {
+                     return (
+                        <li
+                           key={item._id}
+                           onClick={() => setSelectedCategory(item._id)}
+                        >
+                           <label className="flex items-center gap-3 mb-2">
+                              <input
+                                 type="radio"
+                                 name="category"
+                                 defaultChecked={selectedcategory.includes(
+                                    item._id
+                                 )}
+                              />
+                              <p>{item.name}</p>
+                           </label>
+                        </li>
+                     );
+                  })}
                </ul>
             </div>
          </div>

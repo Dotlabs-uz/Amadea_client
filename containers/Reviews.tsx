@@ -30,6 +30,21 @@ const reviews = [
       commentuz: "Juda yaxshi tanlov va xizmat, qizlarga rahmat.",
       rate: "*****",
    },
+   {
+      id: 4,
+      commentru: "Качественные продукты, рекомендую всем.",
+      commenten: "High quality products, I recommend them to everyone.",
+      commentuz:
+         "Yuqori sifatli mahsulotlar, men ularni hammaga tavsiya qilaman.",
+      rate: "*****",
+   },
+   {
+      id: 5,
+      commentru: "Отличный выбор, быстрая доставка, хорошие цены!",
+      commenten: "Great selection, fast delivery, good prices!",
+      commentuz: "Ajoyib tanlov, tez yetkazib berish, yaxshi narxlar!",
+      rate: "*****",
+   },
 ];
 
 const Reviews: React.FC<ReviewsProps> = () => {
@@ -47,6 +62,7 @@ const Reviews: React.FC<ReviewsProps> = () => {
             </div>
             <div className="">
                <Swiper
+                  className="cursor-grab"
                   spaceBetween={30}
                   slidesPerView={3}
                   breakpoints={{

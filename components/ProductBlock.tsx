@@ -24,17 +24,17 @@ const ProductBlock: React.FC<ProductBlockProps> = ({ item }) => {
    return (
       <>
          <div className="max-xs:max-w-xs w-full h-full m-auto flex flex-col items-center rounded-2xl shadow-[0_8px_23px_#506b5221] overflow-hidden">
-            <div className="w-full h-[200px] max-xs:h-[150px] overflow-hidden mb-6 max-md:mb-2">
-               <Fancybox>
+            <Fancybox>
+               <div className="w-full h-[200px] max-xs:h-[150px] overflow-hidden px-2">
                   <a data-fancybox="gallery" href={item.image}>
                      <img
                         src={item.image}
-                        className="object-cover"
+                        className="w-full h-full object-cover"
                         alt="product"
                      />
                   </a>
-               </Fancybox>
-            </div>
+               </div>
+            </Fancybox>
             <div className="w-full mt-auto p-5 max-md:p-3 max-xs:p-2">
                <p className="max-sm:text-sm">{title}</p>
 

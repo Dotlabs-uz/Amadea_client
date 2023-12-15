@@ -42,8 +42,6 @@ const Pagination: React.FC<PaginationProps> = ({
       return pages;
    };
 
-   // console.log(renderPages().length);
-
    return (
       <div className="w-full">
          <ul className="bg-[#50806B] w-fit flex items-center m-auto mt-16">
