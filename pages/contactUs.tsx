@@ -15,7 +15,7 @@ import TitlePage from "@/components/children/TitlePage";
 const arr = [
    {
       id: 0,
-      address: "Самаракандский главный офис",
+      address: "Самарканд",
       street: "улица Мир Саид Барака, 34",
       coordinates: [39.652319, 66.944308],
       numbers: [
@@ -31,7 +31,7 @@ const arr = [
    },
    {
       id: 1,
-      address: "Тошкентский филиал",
+      address: "Ташкент",
       street: "улица Сайрам, 39А Мирзо-Улугбекский район",
       coordinates: [41.328373, 69.32609],
       numbers: [
@@ -43,7 +43,7 @@ const arr = [
    },
    {
       id: 2,
-      address: "Андижанский филиал",
+      address: "Андижан",
       street: "",
       coordinates: [40.771127, 72.361927],
       numbers: [
@@ -59,7 +59,7 @@ const arr = [
    },
    {
       id: 3,
-      address: "Бухарский филиал",
+      address: "Бухара",
       street: "Bahovuddin Naqshband 309/2",
       coordinates: [39.772874, 64.433925],
       numbers: [
@@ -71,7 +71,7 @@ const arr = [
    },
    {
       id: 4,
-      address: "Навоийский филиал",
+      address: "Навоий",
       street: "3-й микрорайон, 18 Зарафшан, Навоийская область",
       coordinates: [41.572253, 64.202143],
       numbers: [
@@ -83,7 +83,7 @@ const arr = [
    },
    {
       id: 5,
-      address: "Сурхандаринский филиал",
+      address: "Сурхандаря",
       street: "4Р100 Сурхандарьинская область",
       coordinates: [37.268094, 67.283526],
       numbers: [
@@ -95,7 +95,7 @@ const arr = [
    },
    {
       id: 6,
-      address: "Каракалпакский филиал",
+      address: "Каракалпакстан",
       street: "61-й квартал, 11 Нукус, Республика Каракалпакстан",
       coordinates: [42.47118, 59.617505],
       numbers: [
