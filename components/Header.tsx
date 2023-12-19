@@ -29,7 +29,7 @@ const Header: React.FC<HeaderProps> = () => {
    return (
       <header className="shadow-md">
          <div className="custom-container flex items-center justify-between py-5">
-            <div className="w-16 max-lg:w-16">
+            <div className="w-16 max-lg:w-16 max-sm:w-12">
                <Link href={"/"}>
                   <Image
                      src={"/images/logo.svg"}
@@ -94,11 +94,11 @@ const Header: React.FC<HeaderProps> = () => {
                   <option value="en">EN</option>
                </select>
             </div>
-            <div className="flex items-center gap-5">
+            <div className="flex items-center justify-center gap-5 max-sm:gap-2">
                <div className="">
                   <a
                      href="tel:+998955001522"
-                     className="text-[20px] max-lg:text-[18px] max-sm:text-base font-semibold"
+                     className="text-[20px] max-lg:text-[18px] max-sm:text-base max-xs:text-sm font-semibold"
                   >
                      +998 (95) 500-15-22
                   </a>

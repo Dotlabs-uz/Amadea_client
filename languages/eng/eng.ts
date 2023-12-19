@@ -58,6 +58,21 @@ const eng = {
       website: "Web-site",
       distributors: "Amadea Distributors",
       show: "Show on the map",
+
+      samarkand: "Samarkand",
+      street1: "Mir Said Baraka street, 34",
+      tashkent: "Tashkent",
+      street2: "Sairam street, 39A Mirzo-Ulugbek district",
+      andijan: "Andijan",
+      street3: "",
+      bukhara: "Bukhara",
+      street4: "Bakhavuddin Naqshband 309/2",
+      navoiy: "Navoiy",
+      street5: "3rd microdistrict, 18 Zarafshan, Navoi region",
+      surkhandarya: "Surkhandarya",
+      street6: "4Р100 Surkhandarya region",
+      karakalpakstan: "Karakalpakstan",
+      street7: "61st quarter, 11 Nukus, Republic of Karakalpakstan",
    },
 
    item: {

@@ -1,116 +1,113 @@
 import { useContext, useState } from "react";
-import Context from "@/context/useTranslate";
-import Image from "next/image";
 import Link from "next/link";
-import {
-   YMaps,
-   Map,
-   Placemark,
-   GeolocationControl,
-} from "@pbe/react-yandex-maps";
+import Context from "@/context/useTranslate";
+import { YMaps, Map, Placemark } from "@pbe/react-yandex-maps";
 
 import TitlePage from "@/components/children/TitlePage";
-// import Map from "@/components/Map";
-
-const arr = [
-   {
-      id: 0,
-      address: "Самарканд",
-      street: "улица Мир Саид Барака, 34",
-      coordinates: [39.652319, 66.944308],
-      numbers: [
-         {
-            id: 0,
-            number: "+998 95 500 15 22",
-         },
-         {
-            id: 1,
-            number: "+998 90 251 15 22",
-         },
-      ],
-   },
-   {
-      id: 1,
-      address: "Ташкент",
-      street: "улица Сайрам, 39А Мирзо-Улугбекский район",
-      coordinates: [41.328373, 69.32609],
-      numbers: [
-         {
-            id: 0,
-            number: "+998 97 747 75 77",
-         },
-      ],
-   },
-   {
-      id: 2,
-      address: "Андижан",
-      street: "",
-      coordinates: [40.771127, 72.361927],
-      numbers: [
-         {
-            id: 0,
-            number: "+998 99 526 00 11",
-         },
-         {
-            id: 1,
-            number: "+998 90 606 27 94",
-         },
-      ],
-   },
-   {
-      id: 3,
-      address: "Бухара",
-      street: "Bahovuddin Naqshband 309/2",
-      coordinates: [39.772874, 64.433925],
-      numbers: [
-         {
-            id: 0,
-            number: "+998 91 522 00 11",
-         },
-      ],
-   },
-   {
-      id: 4,
-      address: "Навоий",
-      street: "3-й микрорайон, 18 Зарафшан, Навоийская область",
-      coordinates: [41.572253, 64.202143],
-      numbers: [
-         {
-            id: 0,
-            number: "+998 90 606 27 92",
-         },
-      ],
-   },
-   {
-      id: 5,
-      address: "Сурхандаря",
-      street: "4Р100 Сурхандарьинская область",
-      coordinates: [37.268094, 67.283526],
-      numbers: [
-         {
-            id: 0,
-            number: "+998 90 000 73 07",
-         },
-      ],
-   },
-   {
-      id: 6,
-      address: "Каракалпакстан",
-      street: "61-й квартал, 11 Нукус, Республика Каракалпакстан",
-      coordinates: [42.47118, 59.617505],
-      numbers: [
-         {
-            id: 0,
-            number: "+998 90 000 73 07",
-         },
-      ],
-   },
-];
 
 interface ConactUsProps {}
 const ConactUs: React.FC<ConactUsProps> = () => {
    const translation: any = useContext(Context);
+   const arr = [
+      {
+         id: 0,
+         address: translation.conactUs.samarkand,
+         street: translation.conactUs.street1,
+         coordinates: [39.652319, 66.944308],
+         numbers: [
+            {
+               id: 0,
+               number: "+998 95 500 15 22",
+            },
+            {
+               id: 1,
+               number: "+998 90 251 15 22",
+            },
+         ],
+      },
+      {
+         id: 1,
+         address: translation.conactUs.tashkent,
+         street: translation.conactUs.street2,
+         coordinates: [41.328373, 69.32609],
+         numbers: [
+            {
+               id: 0,
+               number: "+998 97 747 75 77",
+            },
+         ],
+      },
+      {
+         id: 2,
+         address: translation.conactUs.andijan,
+         street: "",
+         coordinates: [40.771127, 72.361927],
+         numbers: [
+            {
+               id: 0,
+               number: "+998 99 526 00 11",
+            },
+            {
+               id: 1,
+               number: "+998 90 606 27 94",
+            },
+         ],
+      },
+      {
+         id: 3,
+         address: translation.conactUs.bukhara,
+         street: translation.conactUs.street4,
+         coordinates: [39.772874, 64.433925],
+         numbers: [
+            {
+               id: 0,
+               number: "+998 91 522 00 11",
+            },
+         ],
+      },
+      {
+         id: 4,
+         address: translation.conactUs.navoiy,
+         street: translation.conactUs.street5,
+         coordinates: [41.572253, 64.202143],
+         numbers: [
+            {
+               id: 0,
+               number: "+998 90 606 27 92",
+            },
+         ],
+      },
+      {
+         id: 5,
+         address: translation.conactUs.surkhandarya,
+         street: translation.conactUs.street6,
+         coordinates: [37.268094, 67.283526],
+         numbers: [
+            {
+               id: 0,
+               number: "+998 90 000 73 07",
+            },
+         ],
+      },
+      {
+         id: 6,
+         address: translation.conactUs.karakalpakstan,
+         street: translation.conactUs.street7,
+         coordinates: [42.47118, 59.617505],
+         numbers: [
+            {
+               id: 0,
+               number: "+998 90 000 73 07",
+            },
+         ],
+      },
+   ];
    const [location, setLocation] = useState([39.652319, 66.944308]);
+
+   const defaultState = {
+      center: location,
+      zoom: 18,
+   };
 
    return (
       <>
@@ -216,23 +213,20 @@ const ConactUs: React.FC<ConactUsProps> = () => {
                </div>
             </div>
          </div>
-         <div id="map" className="relative w-full h-[450px] max-lg:h-[400px] max-md:h-80 my-16">
-            <YMaps>
-               <Map
-                  defaultState={{
-                     center: location,
-                     zoom: 5,
-                  }}
-                  className="w-full h-full"
-               >
+         <div
+            id="map"
+            className="relative w-full h-[450px] max-lg:h-[400px] max-md:h-80 my-16"
+         >
+            <YMaps
+               query={{
+                  apikey: process.env.NEXT_PUBLIC_YANDEX_API_KEY,
+               }}
+            >
+               <Map defaultState={defaultState} className="w-full h-full">
                   <Placemark className="w-full h-full" geometry={location} />
                </Map>
             </YMaps>
          </div>
-
-         {/* <div className="w-full min-h-[300px] my-10">
-            <Map location={location} />
-         </div> */}
       </>
    );
 };
