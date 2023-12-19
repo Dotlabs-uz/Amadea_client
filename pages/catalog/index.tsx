@@ -115,7 +115,19 @@ const Catalog: React.FC<CatalogProps> = ({ categories }) => {
             </div>
          </section>
 
-         <div className="w-full sticky top-0 z-50 mb-5 shadow-sm bg-white">
+         <div
+            onClick={() => setHide(false)}
+            className={`absolute z-40 top-0 left-0 w-full h-screen ${
+               hide ? "max-lg:block" : "hidden"
+            }`}
+         ></div>
+         <div className="w-full sticky top-0 z-40 mb-5 shadow-sm bg-white">
+            <div
+               onClick={() => setHide(false)}
+               className={`absolute z-40 top-0 left-0 w-full h-screen ${
+                  hide ? "max-lg:block" : "hidden"
+               }`}
+            ></div>
             <div className="custom-container flex justify-end max-lg:justify-between mb-10 pt-5 max-lg:pt-3 pb-3">
                <div className="lg:hidden">
                   <button
@@ -127,7 +139,7 @@ const Catalog: React.FC<CatalogProps> = ({ categories }) => {
                </div>
 
                <div
-                  className={`absolute top-14 left-14 max-md:left-5 ${
+                  className={`absolute z-[100] top-14 left-14 max-md:left-5 ${
                      hide ? "max-lg:block" : "hidden"
                   }`}
                >

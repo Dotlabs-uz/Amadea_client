@@ -219,7 +219,7 @@ const ConactUs: React.FC<ConactUsProps> = () => {
          >
             <YMaps
                query={{
-                  apikey: "3e624faa-8e51-4c19-90ba-78bc289304b4",
+                  apikey: process.env.NEXT_PUBLIC_YANDEX_API_KEY,
                }}
             >
                <Map defaultState={defaultState} className="w-full h-full">
