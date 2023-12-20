@@ -78,6 +78,10 @@ const eng = {
    item: {
       more: "more",
    },
+
+   footer: {
+      copyright: "Copyright Amadea. All Rights Reserved.",
+   },
 };
 
 export default eng;

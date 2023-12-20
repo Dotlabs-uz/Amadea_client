@@ -44,7 +44,7 @@ const Footer: React.FC<FooterProps> = () => {
          </div>
          <div className="py-2 bg-[#50806B]">
             <p className="max-sm:text-sm font-medium text-center text-white">
-               Copyright Green thumb. All Rights Reserved
+               Copyright Amadea. All Rights Reserved.
             </p>
          </div>
       </footer>
