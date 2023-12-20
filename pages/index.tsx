@@ -35,7 +35,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 export default function Home({ categories }: any) {
    return (
       <>
-         <Head>
+         {/* <Head>
             <meta charSet="UTF-8" />
             <title>Amadea | Home</title>
             <meta name="author" content="Amadea"></meta>
@@ -57,7 +57,7 @@ export default function Home({ categories }: any) {
                name="viewport"
                content="width=device-width, initial-scale=1.0"
             ></meta>
-         </Head>
+         </Head> */}
          <Hero />
          <Categories categories={categories} />
          <AboutUs />
