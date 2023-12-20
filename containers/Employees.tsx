@@ -55,7 +55,7 @@ const Employees: React.FC<EmployeesProps> = () => {
                   return (
                      <div
                         key={item.id}
-                        className="max-w-[250px] max-sm:max-w-[200px] w-full mr-5 max-sm:mr-3"
+                        className="max-w-[250px] max-sm:max-w-[200px] max-xs:max-w-[120px] w-full mr-5 max-sm:mr-3"
                      >
                         <Image
                            src={`/images/employees/${item.img}`}
@@ -74,7 +74,7 @@ const Employees: React.FC<EmployeesProps> = () => {
                   return (
                      <div
                         key={item.img}
-                        className="max-w-[250px] max-sm:max-w-[200px] w-full mr-5 max-sm:mr-3"
+                        className="max-w-[250px] max-sm:max-w-[200px] max-xs:max-w-[120px] w-full mr-5 max-sm:mr-3"
                      >
                         <Image
                            src={`/images/employees/${item.img}`}

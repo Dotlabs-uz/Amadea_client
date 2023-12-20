@@ -134,7 +134,7 @@ const Catalog: React.FC<CatalogProps> = ({ categories }) => {
                      onClick={() => setHide(!hide)}
                      className="bg-[#568b75] p-2 rounded-lg"
                   >
-                     <TbFilterSearch size={25} color={"fff"} />
+                     <TbFilterSearch size={25} color={"fff"} />в
                   </button>
                </div>
 

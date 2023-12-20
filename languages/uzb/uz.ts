@@ -74,8 +74,13 @@ const uz = {
       karakalpakstan: "Qoraqalpog'iston",
       street7: "Qoraqalpog‘iston Respublikasi, Nukus sh., 11-uy, 61-kvartal",
    },
+
    item: {
       more: "batafsil",
+   },
+
+   footer: {
+      copyright: "Amadea mualliflik huquqi. Barcha huquqlar himoyalangan.",
    },
 };
 

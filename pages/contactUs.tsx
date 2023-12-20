@@ -106,7 +106,7 @@ const ConactUs: React.FC<ConactUsProps> = () => {
 
    const defaultState = {
       center: location,
-      zoom: 18,
+      zoom: 5,
    };
 
    return (
