@@ -117,16 +117,14 @@ const Catalog: React.FC<CatalogProps> = ({ categories }) => {
 
          <div
             onClick={() => setHide(false)}
-            className={`absolute z-40 top-0 left-0 w-full h-screen ${
-               hide ? "max-lg:block" : "hidden"
-            }`}
+            className={`absolute z-40 top-0 left-0 w-full h-screen ${hide ? "max-lg:block" : "hidden"
+               }`}
          ></div>
          <div className="w-full sticky top-0 z-40 mb-5 shadow-sm bg-white">
             <div
                onClick={() => setHide(false)}
-               className={`absolute z-40 top-0 left-0 w-full h-screen ${
-                  hide ? "max-lg:block" : "hidden"
-               }`}
+               className={`absolute z-40 top-0 left-0 w-full h-screen ${hide ? "max-lg:block" : "hidden"
+                  }`}
             ></div>
             <div className="custom-container flex justify-end max-lg:justify-between mb-10 pt-5 max-lg:pt-3 pb-3">
                <div className="lg:hidden">
@@ -134,14 +132,13 @@ const Catalog: React.FC<CatalogProps> = ({ categories }) => {
                      onClick={() => setHide(!hide)}
                      className="bg-[#568b75] p-2 rounded-lg"
                   >
-                     <TbFilterSearch size={25} color={"fff"} />в
+                     <TbFilterSearch size={25} color={"fff"} />
                   </button>
                </div>
 
                <div
-                  className={`absolute z-[100] top-14 left-14 max-md:left-5 ${
-                     hide ? "max-lg:block" : "hidden"
-                  }`}
+                  className={`absolute z-[100] top-14 left-14 max-md:left-5 ${hide ? "max-lg:block" : "hidden"
+                     }`}
                >
                   <Filter
                      selectedcategory={selectedcategory}
@@ -163,9 +160,8 @@ const Catalog: React.FC<CatalogProps> = ({ categories }) => {
          <div className="custom-container max-sm:px-2">
             <div className="flex gap-20 max-xl:gap-10">
                <aside
-                  className={`max-w-[250px] max-2xl:max-w-[200px] max-lg:max-w-full h-full w-full max-lg:fixed max-lg:z-50 max-lg:top-0 max-lg:left-0 max-lg:p-5 lg:sticky top-24 max-lg:overflow-x-auto max-lg:hidden max-lg:bg-white ${
-                     hide ? "block" : "max-lg:hidden"
-                  }`}
+                  className={`max-w-[250px] max-2xl:max-w-[200px] max-lg:max-w-full h-full w-full max-lg:fixed max-lg:z-50 max-lg:top-0 max-lg:left-0 max-lg:p-5 lg:sticky top-24 max-lg:overflow-x-auto max-lg:hidden max-lg:bg-white ${hide ? "block" : "max-lg:hidden"
+                     }`}
                >
                   <Filter
                      selectedcategory={selectedcategory}
